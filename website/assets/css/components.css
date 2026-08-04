@@ -1,0 +1,195 @@
+/* =========================================================
+   LocalShop Components
+   Version : 1.0
+========================================================= */
+
+
+/* ========= Container ========= */
+
+.container{
+
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:0 16px;
+
+}
+
+
+/* ========= Card ========= */
+
+.card{
+
+    background:var(--surface);
+
+    border-radius:var(--radius-md);
+
+    box-shadow:var(--shadow-sm);
+
+    border:1px solid var(--border);
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+
+/* ========= Buttons ========= */
+
+.btn{
+
+    display:inline-flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    border-radius:var(--radius-sm);
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+
+/* Primary */
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+.btn-primary:hover{
+
+    background:var(--primary-dark);
+
+}
+
+
+/* Outline */
+
+.btn-outline{
+
+    border:2px solid var(--primary);
+
+    background:white;
+
+    color:var(--primary);
+
+}
+
+.btn-outline:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+}
+
+
+/* Full Width */
+
+.btn-block{
+
+    width:100%;
+
+}
+
+
+/* Sizes */
+
+.btn-sm{
+
+    padding:8px 14px;
+
+    font-size:14px;
+
+}
+
+.btn-md{
+
+    padding:12px 20px;
+
+    font-size:15px;
+
+}
+
+.btn-lg{
+
+    padding:16px 24px;
+
+    font-size:17px;
+
+}
+
+
+/* ========= Input ========= */
+
+.input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:var(--radius-sm);
+
+    border:1px solid var(--border);
+
+    transition:var(--transition);
+
+    background:white;
+
+}
+
+.input:focus{
+
+    border-color:var(--primary);
+
+}
+
+
+/* ========= Badge ========= */
+
+.badge{
+
+    display:inline-block;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.badge-success{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+
+/* ========= Section ========= */
+
+.section{
+
+    padding:20px 0;
+
+}

@@ -1,0 +1,62 @@
+/* =========================================================
+   LocalShop Design System
+   Version : 1.0
+   ========================================================= */
+
+:root{
+
+    /* Primary */
+
+    --primary:#2E7D32;
+    --primary-light:#43A047;
+    --primary-dark:#1B5E20;
+
+    /* Secondary */
+
+    --secondary:#1976D2;
+
+    /* Status */
+
+    --success:#4CAF50;
+    --warning:#FB8C00;
+    --danger:#E53935;
+    --info:#039BE5;
+
+    /* Background */
+
+    --background:#F5F7FA;
+    --surface:#FFFFFF;
+
+    /* Text */
+
+    --text:#212121;
+    --text-light:#757575;
+    --text-white:#FFFFFF;
+
+    /* Border */
+
+    --border:#E5E7EB;
+
+    /* Radius */
+
+    --radius-xs:6px;
+    --radius-sm:10px;
+    --radius-md:14px;
+    --radius-lg:20px;
+    --radius-xl:30px;
+
+    /* Shadow */
+
+    --shadow-sm:0 2px 8px rgba(0,0,0,.05);
+    --shadow-md:0 6px 18px rgba(0,0,0,.08);
+    --shadow-lg:0 10px 25px rgba(0,0,0,.12);
+
+    /* Font */
+
+    --font:"Poppins",sans-serif;
+
+    /* Animation */
+
+    --transition:.25s ease;
+
+}

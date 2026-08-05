@@ -1,9 +1,9 @@
 /*
 =========================================================
-LocalShop Platform
-File : variables.css
-Version : v0.1.0
-Purpose : Global Design Variables
+Project      : LocalShop Platform
+Repository   : localshop-platform
+File         : variables.css
+Version      : 0.1.0
 =========================================================
 */
 
@@ -14,12 +14,14 @@ Purpose : Global Design Variables
     ===================================================== */
 
     --color-primary: #2E7D32;
-    --color-primary-light: #4CAF50;
+    --color-primary-light: #43A047;
     --color-primary-dark: #1B5E20;
 
-    --color-secondary: #1976D2;
-    --color-secondary-light: #42A5F5;
+    --color-secondary: #1565C0;
+    --color-secondary-light: #1E88E5;
     --color-secondary-dark: #0D47A1;
+
+    --color-accent: #FF9800;
 
     /* =====================================================
        Status Colors
@@ -37,14 +39,29 @@ Purpose : Global Design Variables
     --color-white: #FFFFFF;
     --color-black: #000000;
 
-    --color-background: #F5F7FA;
+    --color-bg: #F5F7FA;
     --color-surface: #FFFFFF;
 
     --color-border: #E5E7EB;
+    --color-border-dark: #D1D5DB;
 
-    --color-text: #222222;
-    --color-text-light: #666666;
-    --color-text-muted: #999999;
+    --color-text: #1F2937;
+    --color-text-light: #6B7280;
+    --color-text-muted: #9CA3AF;
+
+    /* =====================================================
+       Category Theme Colors
+    ===================================================== */
+
+    --theme-vegetable: #2E7D32;
+    --theme-fruit: #E53935;
+    --theme-grocery: #1565C0;
+    --theme-medical: #D32F2F;
+    --theme-restaurant: #6D4C41;
+    --theme-bakery: #F57C00;
+    --theme-cafe: #5D4037;
+    --theme-hardware: #455A64;
+    --theme-cosmetic: #EC407A;
 
     /* =====================================================
        Typography
@@ -54,6 +71,7 @@ Purpose : Global Design Variables
         "Inter",
         "Segoe UI",
         Roboto,
+        Helvetica,
         Arial,
         sans-serif;
 
@@ -61,23 +79,31 @@ Purpose : Global Design Variables
     --font-size-sm: 14px;
     --font-size-md: 16px;
     --font-size-lg: 18px;
-    --font-size-xl: 22px;
-    --font-size-2xl: 28px;
-    --font-size-3xl: 36px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
 
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
+    --font-light: 300;
+    --font-normal: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
 
-    /* =====================================================
-       Line Height
-    ===================================================== */
-
-    --line-height-sm: 1.3;
+    --line-height-sm: 1.2;
     --line-height-md: 1.5;
     --line-height-lg: 1.8;
+
+    /* =====================================================
+       Layout
+    ===================================================== */
+
+    --container-width: 1280px;
+    --container-padding: 16px;
+
+    --header-height: 70px;
+    --footer-height: 80px;
+    --bottom-nav-height: 70px;
 
     /* =====================================================
        Border Radius
@@ -88,56 +114,84 @@ Purpose : Global Design Variables
     --radius-md: 12px;
     --radius-lg: 18px;
     --radius-xl: 24px;
+    --radius-round: 50%;
     --radius-pill: 999px;
 
     /* =====================================================
-       Shadows
+       Shadow
     ===================================================== */
 
     --shadow-xs:
-        0 1px 2px rgba(0,0,0,0.05);
+        0 1px 2px rgba(0,0,0,.05);
 
     --shadow-sm:
-        0 2px 6px rgba(0,0,0,0.08);
+        0 2px 6px rgba(0,0,0,.08);
 
     --shadow-md:
-        0 8px 20px rgba(0,0,0,0.10);
+        0 8px 18px rgba(0,0,0,.10);
 
     --shadow-lg:
-        0 16px 40px rgba(0,0,0,0.14);
+        0 15px 35px rgba(0,0,0,.15);
+
+    --shadow-xl:
+        0 25px 60px rgba(0,0,0,.20);
 
     /* =====================================================
        Spacing
     ===================================================== */
 
+    --space-0: 0;
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 12px;
     --space-4: 16px;
     --space-5: 20px;
     --space-6: 24px;
-    --space-7: 32px;
-    --space-8: 40px;
-    --space-9: 48px;
-    --space-10: 64px;
+    --space-7: 28px;
+    --space-8: 32px;
+    --space-9: 40px;
+    --space-10: 48px;
+    --space-11: 56px;
+    --space-12: 64px;
 
     /* =====================================================
-       Layout
+       Button
     ===================================================== */
 
-    --container-width: 1280px;
-    --container-padding: 16px;
-
-    --header-height: 64px;
-    --bottom-nav-height: 70px;
+    --btn-height-sm: 38px;
+    --btn-height-md: 46px;
+    --btn-height-lg: 54px;
 
     /* =====================================================
-       Transition
+       Inputs
     ===================================================== */
 
-    --transition-fast: 0.15s ease;
-    --transition-normal: 0.25s ease;
-    --transition-slow: 0.4s ease;
+    --input-height: 48px;
+    --input-radius: 10px;
+    --input-border: var(--color-border);
+
+    /* =====================================================
+       Card
+    ===================================================== */
+
+    --card-radius: 16px;
+    --card-padding: 20px;
+    --card-bg: #FFFFFF;
+
+    /* =====================================================
+       Animation
+    ===================================================== */
+
+    --transition-fast: .15s ease;
+    --transition-normal: .25s ease;
+    --transition-slow: .4s ease;
+
+    /* =====================================================
+       Opacity
+    ===================================================== */
+
+    --opacity-disabled: .5;
+    --opacity-hover: .85;
 
     /* =====================================================
        Z Index
@@ -145,9 +199,55 @@ Purpose : Global Design Variables
 
     --z-dropdown: 100;
     --z-sticky: 500;
-    --z-fixed: 800;
+    --z-fixed: 700;
+    --z-overlay: 900;
     --z-modal: 1000;
     --z-toast: 1100;
     --z-loader: 1200;
+    --z-tooltip: 1300;
+
+    /* =====================================================
+       Breakpoints
+    ===================================================== */
+
+    --screen-xs: 480px;
+    --screen-sm: 768px;
+    --screen-md: 992px;
+    --screen-lg: 1200px;
+    --screen-xl: 1440px;
+
+    /* =====================================================
+       Image Ratio
+    ===================================================== */
+
+    --shop-banner-ratio: 3/1;
+    --shop-logo-ratio: 1/1;
+    --product-image-ratio: 1/1;
+
+    /* =====================================================
+       Loader
+    ===================================================== */
+
+    --loader-size: 44px;
+
+    /* =====================================================
+       QR
+    ===================================================== */
+
+    --qr-size: 220px;
+
+    /* =====================================================
+       Sidebar
+    ===================================================== */
+
+    --sidebar-width: 280px;
+
+    /* =====================================================
+       Home Page
+    ===================================================== */
+
+    --hero-height: 480px;
+    --category-card-size: 110px;
+    --shop-card-width: 320px;
 
 }

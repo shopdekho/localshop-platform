@@ -1,140 +1,991 @@
-
 /*
-Project: LocalShop Platform
-File: components.css
-Version: 0.1.0
+=========================================================
+Project      : LocalShop Platform
+Repository   : localshop-platform
+File         : components.css
+Part         : 1
+=========================================================
 */
 
+
+/* =========================================================
+BUTTONS
+========================================================= */
+
 .btn{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-min-height:var(--btn-height-md);
-padding:0 24px;
-border-radius:var(--radius-md);
-font-weight:var(--font-semibold);
-transition:var(--transition-fast);
-cursor:pointer;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    min-width:160px;
+    height:52px;
+
+    padding:0 24px;
+
+    border:none;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    font-size:15px;
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.25s;
+
 }
 
 .btn-primary{
-background:var(--color-primary);
-color:#fff;
+
+    background:var(--color-primary);
+
+    color:#fff;
+
 }
 
 .btn-primary:hover{
-background:var(--color-primary-dark);
+
+    background:#16662B;
+
 }
 
 .btn-secondary{
-background:var(--color-secondary);
-color:#fff;
+
+    background:#1976D2;
+
+    color:#fff;
+
 }
+
+.btn-secondary:hover{
+
+    background:#125CAB;
+
+}
+
+.btn-outline{
+
+    border:2px solid var(--color-primary);
+
+    color:var(--color-primary);
+
+    background:#fff;
+
+}
+
+.btn-outline:hover{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+}
+
+.btn-danger{
+
+    background:#D32F2F;
+
+    color:#fff;
+
+}
+
+.btn-danger:hover{
+
+    background:#B71C1C;
+
+}
+
+.btn-success{
+
+    background:#2E7D32;
+
+    color:#fff;
+
+}
+
+.btn-success:hover{
+
+    background:#1B5E20;
+
+}
+
+.btn-sm{
+
+    height:42px;
+
+    min-width:120px;
+
+    font-size:14px;
+
+}
+
+.btn-lg{
+
+    height:60px;
+
+    min-width:220px;
+
+    font-size:17px;
+
+}
+
+
+
+/* =========================================================
+CARD
+========================================================= */
 
 .card{
-background:var(--color-white);
-border-radius:var(--card-radius);
-padding:var(--card-padding);
-box-shadow:var(--shadow-sm);
-border:1px solid var(--color-border);
+
+    background:#fff;
+
+    border-radius:20px;
+
+    border:1px solid #ECECEC;
+
+    box-shadow:
+
+    0 10px 28px rgba(0,0,0,.05);
+
+    transition:.25s;
+
 }
 
-.badge{
-display:inline-flex;
-align-items:center;
-padding:4px 10px;
-border-radius:999px;
-font-size:12px;
-font-weight:600;
+.card:hover{
+
+    box-shadow:
+
+    0 25px 50px rgba(0,0,0,.09);
+
 }
 
-.badge-success{
-background:#E8F5E9;
-color:var(--color-success);
+
+
+/* =========================================================
+INPUT
+========================================================= */
+
+.form-group{
+
+    margin-bottom:22px;
+
 }
 
-.input-group{
-display:flex;
-flex-direction:column;
-gap:8px;
+.form-label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#333;
+
 }
 
 .form-control{
-width:100%;
-height:var(--input-height);
-padding:0 16px;
-border:1px solid var(--color-border);
-border-radius:var(--input-radius);
-background:#fff;
+
+    width:100%;
+
+    height:54px;
+
+    border:2px solid #E7E7E7;
+
+    border-radius:14px;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+    transition:.25s;
+
 }
 
 .form-control:focus{
-border-color:var(--color-primary);
-box-shadow:0 0 0 3px rgba(46,125,50,.15);
+
+    border-color:var(--color-primary);
+
+    box-shadow:
+
+    0 0 0 4px rgba(46,125,50,.10);
+
 }
+
+textarea.form-control{
+
+    height:130px;
+
+    resize:vertical;
+
+    padding:16px;
+
+}
+
+
+
+/* =========================================================
+BADGE
+========================================================= */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 14px;
+
+    border-radius:999px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.badge-success{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+.badge-warning{
+
+    background:#FFF8E1;
+
+    color:#F57F17;
+
+}
+
+.badge-danger{
+
+    background:#FFEBEE;
+
+    color:#C62828;
+
+}
+
+.badge-primary{
+
+    background:#E8F5E9;
+
+    color:var(--color-primary);
+
+}
+
+
+
+/* =========================================================
+SHOP CARD
+========================================================= */
+
+.shop-card{
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    border:1px solid #ECECEC;
+
+    transition:.3s;
+
+}
+
+.shop-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.shop-card-image{
+
+    height:200px;
+
+    overflow:hidden;
+
+}
+
+.shop-card-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+
+}
+
+.shop-card:hover img{
+
+    transform:scale(1.05);
+
+}
+
+.shop-card-content{
+
+    padding:22px;
+
+}
+
+
+
+/* =========================================================
+CATEGORY CARD
+========================================================= */
+
+.category-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    padding:26px;
+
+    text-align:center;
+
+    border:1px solid #ECECEC;
+
+    transition:.25s;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+.category-card img{
+
+    width:72px;
+
+    margin:auto;
+
+    margin-bottom:16px;
+
+}
+
+.category-card h3{
+
+    font-size:17px;
+
+}
+
+
+
+/* =========================================================
+FEATURE CARD
+========================================================= */
+
+.feature-card{
+
+    background:#fff;
+
+    border-radius:20px;
+
+    border:1px solid #ECECEC;
+
+    padding:34px 24px;
+
+    text-align:center;
+
+}
+
+.feature-card img{
+
+    width:72px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.feature-card h3{
+
+    margin-bottom:12px;
+
+}
+
+
+
+/* =========================================================
+MODAL
+========================================================= */
 
 .modal{
-position:fixed;
-inset:0;
-display:none;
-align-items:center;
-justify-content:center;
-background:rgba(0,0,0,.45);
-z-index:var(--z-modal);
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.45);
+
+    z-index:9999;
+
 }
 
-.modal-content{
-background:#fff;
-width:min(92%,600px);
-border-radius:var(--radius-lg);
-padding:24px;
-box-shadow:var(--shadow-lg);
+.modal.active{
+
+    display:flex;
+
 }
 
-.toast{
-position:fixed;
-right:20px;
-bottom:20px;
-background:#222;
-color:#fff;
-padding:14px 18px;
-border-radius:10px;
-z-index:var(--z-toast);
+.modal-box{
+
+    width:95%;
+
+    max-width:620px;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    padding:35px;
+
 }
+
+
+
+/* =========================================================
+LOADER
+========================================================= */
 
 .loader{
-width:44px;
-height:44px;
-border:4px solid #ddd;
-border-top-color:var(--color-primary);
-border-radius:50%;
-animation:spin .8s linear infinite;
+
+    width:52px;
+
+    height:52px;
+
+    border:5px solid #ECECEC;
+
+    border-top-color:var(--color-primary);
+
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
+
 }
 
 @keyframes spin{
-to{transform:rotate(360deg);}
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
 }
 
-.shop-card{
-display:flex;
-flex-direction:column;
-overflow:hidden;
-background:#fff;
-border-radius:var(--card-radius);
-border:1px solid var(--color-border);
-box-shadow:var(--shadow-sm);
+
+
+/* =========================================================
+TOAST
+========================================================= */
+
+.toast{
+
+    min-width:320px;
+
+    background:#222;
+
+    color:#fff;
+
+    padding:16px 20px;
+
+    border-radius:14px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.20);
+
+    margin-top:12px;
+
 }
 
-.shop-card img{
-width:100%;
-aspect-ratio:16/9;
-object-fit:cover;
+
+/* =========================================================
+DROPDOWN
+========================================================= */
+
+.dropdown{
+
+    position:relative;
+
 }
 
-.shop-card-body{
-padding:16px;
-display:flex;
-flex-direction:column;
-gap:10px;
+.dropdown-menu{
+
+    position:absolute;
+
+    top:110%;
+
+    left:0;
+
+    min-width:220px;
+
+    background:#fff;
+
+    border:1px solid #ECECEC;
+
+    border-radius:18px;
+
+    padding:10px 0;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transform:translateY(10px);
+
+    transition:.25s;
+
+    z-index:999;
+
 }
+
+.dropdown:hover .dropdown-menu{
+
+    opacity:1;
+
+    visibility:visible;
+
+    transform:translateY(0);
+
+}
+
+.dropdown-menu a{
+
+    display:block;
+
+    padding:12px 18px;
+
+    color:#333;
+
+    font-weight:500;
+
+}
+
+.dropdown-menu a:hover{
+
+    background:#F7F7F7;
+
+    color:var(--color-primary);
+
+}
+
+
+
+/* =========================================================
+TABLE
+========================================================= */
+
+.table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:#fff;
+
+}
+
+.table th{
+
+    background:#F8F9FA;
+
+    padding:18px;
+
+    text-align:left;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    border-bottom:1px solid #ECECEC;
+
+}
+
+.table td{
+
+    padding:18px;
+
+    border-bottom:1px solid #F1F1F1;
+
+}
+
+.table tbody tr:hover{
+
+    background:#FAFAFA;
+
+}
+
+
+
+/* =========================================================
+SEARCH BAR
+========================================================= */
+
+.search-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    height:58px;
+
+    background:#fff;
+
+    border:2px solid #ECECEC;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+}
+
+.search-bar input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    height:100%;
+
+    padding:0 18px;
+
+    font-size:15px;
+
+}
+
+.search-bar button{
+
+    width:60px;
+
+    height:58px;
+
+    border:none;
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    cursor:pointer;
+
+}
+
+
+
+/* =========================================================
+PAGINATION
+========================================================= */
+
+.pagination{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:40px;
+
+}
+
+.pagination a{
+
+    width:42px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:12px;
+
+    border:1px solid #E5E5E5;
+
+    color:#333;
+
+}
+
+.pagination a.active{
+
+    background:var(--color-primary);
+
+    color:#fff;
+
+    border-color:var(--color-primary);
+
+}
+
+
+
+/* =========================================================
+ALERT
+========================================================= */
+
+.alert{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    padding:18px 20px;
+
+    border-radius:16px;
+
+    margin-bottom:20px;
+
+}
+
+.alert-success{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+.alert-warning{
+
+    background:#FFF8E1;
+
+    color:#F57C00;
+
+}
+
+.alert-danger{
+
+    background:#FDECEC;
+
+    color:#C62828;
+
+}
+
+.alert-info{
+
+    background:#E3F2FD;
+
+    color:#1565C0;
+
+}
+
+
+
+/* =========================================================
+AVATAR
+========================================================= */
+
+.avatar{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:50%;
+
+    overflow:hidden;
+
+    background:#EEE;
+
+}
+
+.avatar img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+}
+
+
+
+/* =========================================================
+BREADCRUMB
+========================================================= */
+
+.breadcrumb{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:30px;
+
+    font-size:14px;
+
+}
+
+.breadcrumb a{
+
+    color:#666;
+
+}
+
+.breadcrumb span{
+
+    color:#999;
+
+}
+
+
+
+/* =========================================================
+ACCORDION
+========================================================= */
+
+.accordion{
+
+    border:1px solid #ECECEC;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+}
+
+.accordion-item+
+
+.accordion-item{
+
+    border-top:1px solid #ECECEC;
+
+}
+
+.accordion-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 24px;
+
+    cursor:pointer;
+
+    background:#fff;
+
+    font-weight:700;
+
+}
+
+.accordion-body{
+
+    display:none;
+
+    padding:20px 24px;
+
+    background:#FAFAFA;
+
+    line-height:1.8;
+
+}
+
+.accordion-item.active .accordion-body{
+
+    display:block;
+
+}
+
+
+
+/* =========================================================
+EMPTY STATE
+========================================================= */
+
+.empty-state{
+
+    text-align:center;
+
+    padding:80px 30px;
+
+}
+
+.empty-state img{
+
+    width:170px;
+
+    margin:auto;
+
+    margin-bottom:25px;
+
+}
+
+.empty-state h3{
+
+    margin-bottom:14px;
+
+    font-size:24px;
+
+}
+
+.empty-state p{
+
+    color:#666;
+
+    max-width:420px;
+
+    margin:auto;
+
+    line-height:1.8;
+
+}
+
+
+
+/* =========================================================
+DIVIDER
+========================================================= */
+
+.divider-line{
+
+    width:100%;
+
+    height:1px;
+
+    background:#ECECEC;
+
+    margin:35px 0;
+
+}
+
+
+
+/* =========================================================
+END OF components.css
+Version : 1.0
+========================================================= */

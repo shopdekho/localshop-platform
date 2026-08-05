@@ -1,65 +1,32 @@
-/* =========================================================
-   Base Styles
-   ========================================================= */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-
-    font-family:var(--font);
-
-    background:var(--background);
-
-    color:var(--text);
-
-    font-size:16px;
-
-    line-height:1.5;
-
-    overflow-x:hidden;
-
-}
-
-img{
-
-    display:block;
-
-    max-width:100%;
-
-}
-
-a{
-
-    text-decoration:none;
-
-    color:inherit;
-
-}
-
-button{
-
-    border:none;
-
-    outline:none;
-
-    cursor:pointer;
-
-    font-family:inherit;
-
-}
-
-input{
-
-    outline:none;
-
-    font-family:inherit;
-
-}
+/*
+Project: LocalShop Platform
+File: base.css
+Version:0.1.0
+*/
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-family);font-size:var(--font-size-md);line-height:var(--line-height-md);color:var(--color-text);background:var(--color-bg);min-height:100vh;overflow-x:hidden}
+img,picture,svg,video,canvas{display:block;max-width:100%}
+a{text-decoration:none;color:inherit;transition:var(--transition-fast)}
+button,input,textarea,select{font:inherit;border:none;outline:none;background:none}
+button{cursor:pointer}
+ul,ol{list-style:none}
+table{width:100%;border-collapse:collapse}
+.container{width:min(100% - 2rem,var(--container-width));margin-inline:auto}
+section{padding:64px 0}
+h1,h2,h3,h4,h5,h6{font-weight:var(--font-bold);line-height:1.2;color:var(--color-text)}
+h1{font-size:var(--font-size-4xl)}h2{font-size:var(--font-size-3xl)}h3{font-size:var(--font-size-2xl)}
+p{line-height:1.7;color:var(--color-text-light)}
+input,textarea,select{width:100%;height:var(--input-height);padding:0 16px;border:1px solid var(--color-border);border-radius:var(--input-radius);background:var(--color-white)}
+textarea{min-height:140px;padding:16px;resize:vertical}
+input:focus,textarea:focus,select:focus{border-color:var(--color-primary);box-shadow:0 0 0 3px rgba(46,125,50,.15)}
+button{display:inline-flex;align-items:center;justify-content:center;min-height:var(--btn-height-md);padding:0 24px;border-radius:var(--radius-md);transition:var(--transition-fast)}
+hr{border:none;border-top:1px solid var(--color-border)}
+::selection{background:var(--color-primary);color:#fff}
+:focus-visible{outline:3px solid rgba(46,125,50,.35);outline-offset:2px}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:#bdbdbd;border-radius:999px}
+.hidden{display:none!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{body{background:#fff}.no-print{display:none!important}}

@@ -1,0 +1,1679 @@
+/*
+=========================================================
+Project : LocalShop
+File    : search.css
+Part    : 1
+Mobile First
+=========================================================
+*/
+
+
+
+/* ======================================================
+BODY
+====================================================== */
+
+body{
+
+    margin:0;
+
+    padding:0;
+
+    background:#F4F6F8;
+
+    font-family:'Inter',sans-serif;
+
+    color:#222;
+
+}
+
+.app{
+
+    width:100%;
+
+    max-width:430px;
+
+    min-height:100vh;
+
+    margin:auto;
+
+    background:#FFFFFF;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+/* ======================================================
+HEADER
+====================================================== */
+
+.search-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:100;
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 18px;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(20px);
+
+    border-bottom:1px solid #ECECEC;
+
+}
+
+.search-header h1{
+
+    font-size:19px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+.back-btn,
+
+.notification-btn{
+
+    width:44px;
+
+    height:44px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#F5F7FA;
+
+    color:#333;
+
+    font-size:18px;
+
+    transition:.25s;
+
+}
+
+.back-btn:hover,
+
+.notification-btn:hover{
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+}
+
+
+
+/* ======================================================
+SEARCH TOP
+====================================================== */
+
+.search-top{
+
+    padding:18px 16px;
+
+    background:#FFFFFF;
+
+}
+
+.search-box{
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    height:60px;
+
+    padding:0 16px;
+
+    border-radius:18px;
+
+    background:#FFFFFF;
+
+    border:1px solid #EAEAEA;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.05);
+
+}
+
+.search-box:focus-within{
+
+    border-color:#2E7D32;
+
+    box-shadow:
+
+    0 0 0 4px rgba(46,125,50,.08);
+
+}
+
+.search-box>i{
+
+    color:#777;
+
+    font-size:18px;
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    font-size:15px;
+
+}
+
+.search-box button{
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #4CAF50
+    );
+
+    color:#FFFFFF;
+
+    font-size:16px;
+
+}
+
+
+
+/* ======================================================
+QUICK ACTIONS
+====================================================== */
+
+.quick-actions{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    gap:14px;
+
+    padding:0 16px;
+
+    margin-top:6px;
+
+}
+
+.action-card{
+
+    border:none;
+
+    background:#FFFFFF;
+
+    border-radius:22px;
+
+    padding:18px 10px;
+
+    box-shadow:
+
+    0 12px 30px rgba(0,0,0,.05);
+
+    border:1px solid #ECECEC;
+
+    transition:.25s;
+
+}
+
+.action-card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.action-card i{
+
+    width:56px;
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:auto;
+
+    margin-bottom:12px;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #4CAF50
+    );
+
+    color:#FFFFFF;
+
+    font-size:24px;
+
+}
+
+.action-card span{
+
+    display:block;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    color:#333;
+
+}
+
+
+
+/* ======================================================
+SECTION
+====================================================== */
+
+.section{
+
+    margin-top:30px;
+
+    padding:0 16px;
+
+}
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+}
+
+.section-title h2{
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+.section-title button,
+
+.section-title a{
+
+    border:none;
+
+    background:none;
+
+    color:#2E7D32;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+
+
+/* ======================================================
+RECENT SEARCH
+====================================================== */
+
+.recent-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.recent-list a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    background:#FFFFFF;
+
+    padding:16px 18px;
+
+    border-radius:16px;
+
+    border:1px solid #ECECEC;
+
+    color:#333;
+
+    box-shadow:
+
+    0 10px 24px rgba(0,0,0,.04);
+
+}
+
+.recent-list i{
+
+    color:#2E7D32;
+
+}
+
+
+
+/* ======================================================
+CATEGORY CHIPS
+====================================================== */
+
+.chip-scroll{
+
+    display:flex;
+
+    gap:12px;
+
+    overflow-x:auto;
+
+    padding-bottom:6px;
+
+    scrollbar-width:none;
+
+}
+
+.chip-scroll::-webkit-scrollbar{
+
+    display:none;
+
+}
+
+.chip{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:12px 18px;
+
+    border-radius:999px;
+
+    background:#FFFFFF;
+
+    color:#444;
+
+    white-space:nowrap;
+
+    border:1px solid #EAEAEA;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.04);
+
+}
+
+.chip.active{
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:#FFFFFF;
+
+    border:none;
+
+}
+
+.chip i{
+
+    font-size:15px;
+
+}
+/* ======================================================
+SEARCH RESULT LIST
+====================================================== */
+
+.search-result-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+
+/* ======================================================
+RESULT CARD
+====================================================== */
+
+.result-card{
+
+    background:#FFFFFF;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    border:1px solid #ECECEC;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.05);
+
+    transition:.30s;
+
+}
+
+.result-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 22px 45px rgba(0,0,0,.08);
+
+}
+
+.result-image{
+
+    position:relative;
+
+    height:190px;
+
+    overflow:hidden;
+
+}
+
+.result-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.45s;
+
+}
+
+.result-card:hover .result-image img{
+
+    transform:scale(1.08);
+
+}
+
+.verified{
+
+    position:absolute;
+
+    right:16px;
+
+    top:16px;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.92);
+
+    backdrop-filter:blur(12px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#2196F3;
+
+    font-size:18px;
+
+}
+
+.result-body{
+
+    padding:20px;
+
+}
+
+.top-row{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+}
+
+.top-row h3{
+
+    font-size:21px;
+
+    font-weight:700;
+
+    color:#222;
+
+}
+
+.distance{
+
+    padding:7px 12px;
+
+    border-radius:999px;
+
+    background:#EEF7F0;
+
+    color:#2E7D32;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.rating{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    margin-bottom:14px;
+
+    color:#FF9800;
+
+    font-weight:700;
+
+}
+
+.rating span{
+
+    color:#777;
+
+    font-size:13px;
+
+}
+
+.result-body p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    margin-bottom:16px;
+
+}
+
+.meta{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+}
+
+.meta span{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:14px;
+
+    color:#666;
+
+}
+
+.meta i{
+
+    color:#E53935;
+
+}
+
+.open{
+
+    color:#2E7D32 !important;
+
+    font-weight:700;
+
+}
+
+.busy{
+
+    color:#FB8C00 !important;
+
+    font-weight:700;
+
+}
+
+.offer-chip{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:11px 14px;
+
+    border-radius:14px;
+
+    background:#E8F5E9;
+
+    color:#2E7D32;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.offer-chip i{
+
+    color:#FF9800;
+
+}
+
+.action-row{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.action-row .btn{
+
+    flex:1;
+
+}
+
+
+
+/* ======================================================
+TRENDING SEARCHES
+====================================================== */
+
+.popular-search-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.popular-search-list a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:16px;
+
+    background:#FFFFFF;
+
+    border-radius:18px;
+
+    border:1px solid #ECECEC;
+
+    color:#333;
+
+    box-shadow:
+    0 10px 22px rgba(0,0,0,.04);
+
+}
+
+.popular-search-list i{
+
+    color:#2E7D32;
+
+}
+
+
+
+/* ======================================================
+EMPTY STATE
+====================================================== */
+
+.empty-search{
+
+    padding:50px 25px 120px;
+
+    text-align:center;
+
+}
+
+.empty-search img{
+
+    width:220px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.empty-search h2{
+
+    font-size:28px;
+
+    margin-bottom:12px;
+
+}
+
+.empty-search p{
+
+    color:#666;
+
+    line-height:1.8;
+
+    margin-bottom:22px;
+
+}
+
+
+
+/* ======================================================
+BOTTOM SHEET
+====================================================== */
+
+.bottom-sheet{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:-100%;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#FFFFFF;
+
+    border-radius:28px 28px 0 0;
+
+    padding:26px;
+
+    z-index:9999;
+
+    box-shadow:
+    0 -20px 50px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+}
+
+.bottom-sheet.active{
+
+    bottom:0;
+
+}
+
+.sheet-handle{
+
+    width:70px;
+
+    height:6px;
+
+    background:#DADADA;
+
+    border-radius:999px;
+
+    margin:0 auto 20px;
+
+}
+
+.bottom-sheet h2{
+
+    font-size:24px;
+
+    margin-bottom:24px;
+
+}
+
+.filter-group{
+
+    margin-bottom:22px;
+
+}
+
+.filter-group label{
+
+    display:block;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+}
+
+.filter-group input,
+
+.filter-group select{
+
+    width:100%;
+
+}
+
+.status-buttons{
+
+    display:flex;
+
+    gap:10px;
+
+    flex-wrap:wrap;
+
+}
+
+.status-buttons button{
+
+    padding:12px 18px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#F4F6F8;
+
+    font-weight:600;
+
+}
+
+
+
+/* ======================================================
+BOTTOM NAVIGATION
+====================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:430px;
+
+    height:74px;
+
+    background:#FFFFFF;
+
+    border-top:1px solid #ECECEC;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    box-shadow:
+    0 -8px 25px rgba(0,0,0,.08);
+
+    z-index:999;
+
+}
+
+.bottom-nav a{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#888;
+
+    transition:.25s;
+
+}
+
+.bottom-nav a.active{
+
+    color:#2E7D32;
+
+}
+
+.bottom-nav i{
+
+    font-size:20px;
+
+    margin-bottom:5px;
+
+}
+
+.bottom-nav span{
+
+    font-size:11px;
+
+    font-weight:600;
+
+}
+
+.scan-center{
+
+    margin-top:-34px;
+
+}
+
+.scan-circle{
+
+    width:68px;
+
+    height:68px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:#FFFFFF;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+    border:6px solid #F4F6F8;
+
+    box-shadow:
+    0 18px 35px rgba(46,125,50,.35);
+
+}
+
+/* ======================================================
+SUGGESTION GRID
+====================================================== */
+
+.suggestion-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:14px;
+
+}
+
+.suggest-card{
+
+    background:#FFFFFF;
+
+    border:1px solid #ECECEC;
+
+    border-radius:20px;
+
+    padding:20px 16px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    box-shadow:
+    0 10px 26px rgba(0,0,0,.04);
+
+    transition:.28s;
+
+}
+
+.suggest-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 22px 45px rgba(0,0,0,.08);
+
+}
+
+.suggest-card i{
+
+    width:52px;
+
+    height:52px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #4CAF50
+    );
+
+    color:#FFFFFF;
+
+    font-size:22px;
+
+}
+
+.suggest-card span{
+
+    font-size:14px;
+
+    font-weight:700;
+
+    color:#333;
+
+}
+
+
+
+/* ======================================================
+LOADER
+====================================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(255,255,255,.88);
+
+    backdrop-filter:blur(5px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    z-index:99999;
+
+}
+
+.loader{
+
+    width:58px;
+
+    height:58px;
+
+    border-radius:50%;
+
+    border:5px solid #ECECEC;
+
+    border-top-color:#2E7D32;
+
+    animation:loaderSpin .8s linear infinite;
+
+}
+
+
+
+/* ======================================================
+TOAST
+====================================================== */
+
+#toastContainer{
+
+    position:fixed;
+
+    left:50%;
+
+    bottom:95px;
+
+    transform:translateX(-50%);
+
+    width:calc(100% - 24px);
+
+    max-width:390px;
+
+    z-index:99999;
+
+}
+
+.toast{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    background:#202124;
+
+    color:#FFFFFF;
+
+    padding:16px 18px;
+
+    border-radius:18px;
+
+    margin-top:12px;
+
+    box-shadow:
+    0 18px 40px rgba(0,0,0,.18);
+
+    animation:toastShow .35s ease;
+
+}
+
+.toast-success{
+
+    border-left:5px solid #43A047;
+
+}
+
+.toast-error{
+
+    border-left:5px solid #E53935;
+
+}
+
+.toast-warning{
+
+    border-left:5px solid #FB8C00;
+
+}
+
+.toast i{
+
+    font-size:18px;
+
+}
+
+
+
+/* ======================================================
+MODAL
+====================================================== */
+
+#modalRoot{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    background:rgba(0,0,0,.50);
+
+    backdrop-filter:blur(8px);
+
+    z-index:9999;
+
+}
+
+.modal{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:100%;
+
+    max-width:430px;
+
+    background:#FFFFFF;
+
+    border-radius:30px 30px 0 0;
+
+    padding:24px;
+
+    animation:modalUp .35s ease;
+
+}
+
+.modal-title{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    margin-bottom:18px;
+
+}
+
+.modal-close{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:#F5F5F5;
+
+}
+
+
+
+/* ======================================================
+FLOATING ACTION BUTTON
+====================================================== */
+
+.fab{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:95px;
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+        135deg,
+        #2E7D32,
+        #43A047
+    );
+
+    color:#FFFFFF;
+
+    font-size:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:
+    0 20px 40px rgba(46,125,50,.35);
+
+}
+
+
+
+/* ======================================================
+SKELETON LOADING
+====================================================== */
+
+.skeleton{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#ECECEC;
+
+    border-radius:16px;
+
+}
+
+.skeleton::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.75),
+        transparent
+    );
+
+    transform:translateX(-100%);
+
+    animation:skeletonMove 1.2s infinite;
+
+}
+
+
+
+/* ======================================================
+ANIMATIONS
+====================================================== */
+
+.fade-up{
+
+    animation:fadeUp .45s ease both;
+
+}
+
+.zoom-in{
+
+    animation:zoomIn .35s ease;
+
+}
+
+.bounce{
+
+    animation:bounce 1.8s infinite;
+
+}
+
+@keyframes loaderSpin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.92);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-5px);
+
+    }
+
+}
+
+@keyframes toastShow{
+
+    from{
+
+        opacity:0;
+
+        transform:translate(-50%,25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translate(-50%,0);
+
+    }
+
+}
+
+@keyframes modalUp{
+
+    from{
+
+        transform:translate(-50%,100%);
+
+    }
+
+    to{
+
+        transform:translate(-50%,0);
+
+    }
+
+}
+
+@keyframes skeletonMove{
+
+    100%{
+
+        transform:translateX(100%);
+
+    }
+
+}
+
+
+
+/* ======================================================
+PREMIUM BUTTON EFFECTS
+====================================================== */
+
+.btn{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-140%;
+
+    width:80%;
+
+    height:100%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.35),
+        transparent
+    );
+
+}
+
+.btn:hover::before{
+
+    left:160%;
+
+    transition:.8s;
+
+}
+
+.btn:active{
+
+    transform:scale(.97);
+
+}
+
+
+
+/* ======================================================
+SCROLLBAR
+====================================================== */
+
+::-webkit-scrollbar{
+
+    width:5px;
+
+    height:5px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#BDBDBD;
+
+    border-radius:999px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3F3F3;
+
+}
+
+
+
+/* ======================================================
+TEXT SELECTION
+====================================================== */
+
+::selection{
+
+    background:#2E7D32;
+
+    color:#FFFFFF;
+
+}
+
+
+
+/* ======================================================
+RESPONSIVE
+====================================================== */
+
+@media (min-width:768px){
+
+.app{
+
+    max-width:430px;
+
+    margin:auto;
+
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.12);
+
+}
+
+body{
+
+    background:#E9EEF2;
+
+}
+
+}
+
+
+
+/* ======================================================
+END OF search.css
+Version : 1.0
+====================================================== */

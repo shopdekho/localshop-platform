@@ -1,142 +1,108 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LocalShop</title>
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<meta name="description" content="QR Based Digital Shop Platform">
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-rel="stylesheet">
-
-<link
-href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-rel="stylesheet">
-
-<link
-rel="stylesheet"
-href="assets/css/variables.css">
-
-<link
-rel="stylesheet"
-href="assets/css/base.css">
-
-<link
-rel="stylesheet"
-href="assets/css/components.css">
-
-<link
-rel="stylesheet"
-href="assets/css/utilities.css">
-
-<link
-rel="stylesheet"
-href="assets/css/responsive.css">
-  
-<link rel="stylesheet"
-href="assets/css/home.css">
-</head>
-
-  <link rel="stylesheet"
-href="assets/css/shop-header.css">
+<link rel="stylesheet" href="assets/css/variables.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/utilities.css">
+<link rel="stylesheet" href="assets/css/components.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="stylesheet" href="assets/css/home.css">
 </head>
 
 <body>
-  <div id="shopHeader"></div>
-<div class="hero">
 
-<div class="container">
+<div id="app">
 
-<div class="hero-box">
+<header class="header">
+  <div class="container header-container">
+    <a href="/" class="logo">
+      <img src="assets/images/logo.svg" alt="LocalShop">
+    </a>
 
-<div class="logo">
+    <nav class="desktop-nav">
+      <a href="/">Home</a>
+      <a href="/search">Search</a>
+      <a href="/merchant">Merchant</a>
+      <a href="/about">About</a>
+    </nav>
 
-🏪
+    <button id="menuButton" class="menu-button" aria-label="Open Menu">☰</button>
+  </div>
+</header>
 
-</div>
+<main>
 
-<h1>
+<section class="hero">
+  <div class="container">
+    <h1>Discover Nearby Local Shops</h1>
+    <p>Scan QR or Search Shop ID to view live prices and offers.</p>
 
-Local Shop
+    <form id="searchForm">
+      <input id="shopIdInput" type="text" placeholder="Enter Shop ID">
+      <button type="submit">Search Shop</button>
+    </form>
 
-</h1>
+    <div class="hero-actions">
+      <a href="/scan" class="btn btn-primary">Scan QR</a>
+      <a href="/search" class="btn btn-secondary">Browse Shops</a>
+    </div>
+  </div>
+</section>
 
-<p>
+<section class="categories">
+  <div class="container">
+    <h2>Categories</h2>
+    <div id="categoryGrid" class="category-grid"></div>
+  </div>
+</section>
 
-Find Any Shop By QR Code Or Shop ID
+<section class="popular-shops">
+  <div class="container">
+    <h2>Popular Shops</h2>
+    <div id="popularShopList"></div>
+  </div>
+</section>
 
-</p>
+<section class="recent-shops">
+  <div class="container">
+    <h2>Recent Shops</h2>
+    <div id="recentShopList"></div>
+  </div>
+</section>
 
-<div class="search-box">
+<section class="offers">
+  <div class="container">
+    <h2>Latest Offers</h2>
+    <div id="offerList"></div>
+  </div>
+</section>
 
-<input
+</main>
 
-type="text"
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 LocalShop. All rights reserved.</p>
+  </div>
+</footer>
 
-class="input"
+<div id="loader" hidden></div>
+<div id="toastContainer"></div>
+<div id="modalRoot"></div>
 
-placeholder="Enter Shop ID">
-
-<button
-
-class="btn btn-primary btn-md scan-btn">
-
-📷
-
-</button>
-
-</div>
-
-<button
-
-class="btn btn-primary btn-lg btn-block mt-20">
-
-Search Shop
-
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-  <script src="assets/js/component-loader.js"></script>
-
-<script>
-
-loadComponent(
-
-"shopHeader",
-
-"components/shop-header.html"
-
-);
-
-</script>
-  <body>
-
-</body>
-
-<script src="components/shopHeader.js"></script>
-
-<script src="assets/js/demo-data.js"></script>
-
+<script src="assets/js/config.js"></script>
+<script src="assets/js/storage.js"></script>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/router.js"></script>
+<script src="assets/js/utils.js"></script>
+<script src="assets/js/theme.js"></script>
 <script src="assets/js/app.js"></script>
-</body>
+<script src="assets/js/home.js"></script>
 
+</body>
 </html>

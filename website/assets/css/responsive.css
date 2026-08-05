@@ -1,35 +1,95 @@
-/* =========================================================
-Responsive
-========================================================= */
 
-@media(max-width:992px){
+/*
+Project: LocalShop Platform
+File: responsive.css
+Version: 0.1.0
+*/
 
+@media (max-width:1440px){
+.container{max-width:1200px;}
+}
+
+@media (max-width:1200px){
+.container{max-width:1000px;}
+.shop-card{width:100%;}
+}
+
+@media (max-width:992px){
+.desktop-nav{display:none;}
+.menu-button{display:flex;}
+.hero{padding:64px 0;}
+.category-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:16px;
+}
+}
+
+@media (max-width:768px){
 .container{
-
-max-width:100%;
-
+width:calc(100% - 32px);
 }
-
+.header{
+height:64px;
 }
-
-
-@media(max-width:768px){
-
-body{
-
+.hero h1{
+font-size:32px;
+}
+.hero p{
 font-size:15px;
-
+}
+.category-grid{
+grid-template-columns:repeat(2,1fr);
+}
+.btn{
+width:100%;
+}
+.shop-card-body{
+padding:14px;
+}
+section{
+padding:48px 0;
+}
 }
 
+@media (max-width:576px){
+.hero{
+padding:48px 0;
+}
+.hero h1{
+font-size:28px;
+}
+.hero-actions{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+.category-grid{
+grid-template-columns:1fr 1fr;
+gap:12px;
+}
+.card{
+padding:16px;
+}
+.modal-content{
+width:calc(100% - 24px);
+padding:18px;
+}
+.toast{
+left:12px;
+right:12px;
+bottom:12px;
+}
 }
 
-
-@media(max-width:576px){
-
+@media (max-width:400px){
 .container{
-
-padding:0 14px;
-
+width:calc(100% - 24px);
 }
-
+.hero h1{
+font-size:24px;
+}
+.category-grid{
+grid-template-columns:1fr;
+}
 }

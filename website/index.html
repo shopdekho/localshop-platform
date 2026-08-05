@@ -4,703 +4,992 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>LocalShop - Find Nearby Shops & Live Prices</title>
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+        content="#1E8E3E">
+
+    <title>LocalShop | Find Nearby Shops</title>
 
     <meta name="description"
-        content="Find nearby local shops, scan QR code, compare prices, view today's offers and save money with LocalShop.">
+        content="Find Nearby Shops, Scan QR, Compare Prices">
 
-    <meta name="keywords"
-        content="LocalShop, QR Shop, Live Price, Grocery, Vegetable, Medical, Restaurant, Nearby Shop">
+    <link rel="icon"
+        href="assets/images/logo/favicon.png">
 
-    <meta name="theme-color" content="#1E8E3E">
+    <!-- Google Font -->
 
-    <link rel="icon" href="assets/images/favicon.png">
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/variables.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/utilities.css">
-    <link rel="stylesheet" href="assets/css/components.css">
-    <link rel="stylesheet" href="assets/css/home.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+    <!-- FontAwesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="assets/css/variables.css">
+
+    <link rel="stylesheet"
+        href="assets/css/base.css">
+
+    <link rel="stylesheet"
+        href="assets/css/components.css">
+
+    <link rel="stylesheet"
+        href="assets/css/home.css">
 
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
 
-    <header class="header">
 
-        <div class="container header-container">
+<!-- =====================================================
+APP
+====================================================== -->
 
-            <a href="/" class="logo">
-
-                <img src="assets/images/logo/localshop-logo.svg" alt="LocalShop">
-
-            </a>
-
-            <nav class="desktop-nav">
-
-                <a class="active" href="/">Home</a>
-
-                <a href="search/">Search Shop</a>
-
-                <a href="how-it-works/">How It Works</a>
-
-                <a href="about/">About Us</a>
-
-            </nav>
-
-            <div class="header-right">
-
-                <a href="/merchant/" class="btn btn-primary">
-
-                    <svg width="18" height="18"></svg>
-
-                    For Shop Owners
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </header>
+<div class="app">
 
 
 
-    <!-- ================= HERO ================= -->
+<!-- =====================================================
+TOP HEADER
+====================================================== -->
 
-    <section class="hero">
+<header class="mobile-header">
 
-        <div class="container hero-grid">
+    <div class="header-left">
 
-            <div class="hero-left">
+        <img
+            src="assets/images/logo/logo.png"
+            class="logo">
 
-                <h1>
+        <div>
 
-                    Find Local Shops.<br>
+            <h1>
 
-                    <span>Check Live Prices.</span>
+                LocalShop
 
-                </h1>
+            </h1>
 
-                <p>
+            <span>
 
-                    Scan QR Code or enter Shop ID to view live prices
-                    and shop easily.
+                Scan • Shop • Save
 
-                </p>
-
-
-
-                <form id="searchForm" autocomplete="off">
-
-                    <div class="search-box">
-
-                        <input type="text"
-                            id="shopId"
-                            placeholder="Enter Shop ID (e.g. PRY8A4C2)"
-                            maxlength="20">
-
-                    </div>
-
-                    <button type="submit"
-                        class="btn btn-primary">
-
-                        Search Shop
-
-                    </button>
-
-                    <span class="divider">
-
-                        OR
-
-                    </span>
-
-                    <button type="button"
-                        id="scanButton"
-                        class="btn btn-outline">
-
-                        Scan QR Code
-
-                    </button>
-
-                </form>
-
-            </div>
-
-
-
-            <div class="hero-right">
-
-                <img
-                    src="assets/images/home/hero-shop.webp"
-                    alt="LocalShop">
-
-            </div>
+            </span>
 
         </div>
 
-    </section>
+    </div>
+
+    <button
+        class="notification-btn">
+
+        <i class="fa-regular fa-bell"></i>
+
+    </button>
+
+</header>
 
 
 
-    <!-- ================= QR SECTION ================= -->
+<!-- =====================================================
+LOCATION
+====================================================== -->
 
-    <section class="scanner-section">
+<section
+    class="location-bar">
 
-        <div class="container">
+    <i
+        class="fa-solid fa-location-dot"></i>
 
-            <div class="scanner-card">
+    <span>
 
-                <div class="scanner-icon">
+        Prayagraj,
+        Uttar Pradesh
 
-                    <img
-                        src="assets/images/icons/scan-qr.svg"
-                        alt="Scan">
+    </span>
 
-                </div>
+    <i
+        class="fa-solid fa-angle-down"></i>
 
-                <div class="scanner-content">
+</section>
 
-                    <h2>
 
-                        Scan QR Code
 
-                    </h2>
+<!-- =====================================================
+HERO
+====================================================== -->
 
-                    <p>
+<section class="hero-card">
 
-                        Point your camera at any LocalShop QR Code
-                        to open the shop instantly.
+    <div class="hero-content">
 
-                    </p>
+        <h2>
 
-                    <button
-                        class="btn btn-primary"
-                        id="openScanner">
+            Find Trusted
 
-                        Open Scanner
+            <span>
 
-                    </button>
+                Local Shops
 
-                </div>
+            </span>
 
-                <div class="scanner-features">
+            Near You
 
-                    <ul>
+        </h2>
 
-                        <li>100% Safe & Secure</li>
+        <p>
 
-                        <li>No Login Required</li>
+            Search nearby grocery,
+            vegetables,
+            medical,
+            restaurant
+            and much more.
 
-                        <li>Fast & Easy</li>
+        </p>
 
-                        <li>Live Prices</li>
+        <button
+            class="btn btn-primary">
 
-                    </ul>
+            Explore Shops
 
-                </div>
+        </button>
 
-            </div>
+    </div>
+
+    <div
+        class="hero-image">
+
+        <img
+            src="assets/images/hero/shop.png">
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+SEARCH
+====================================================== -->
+
+<section
+    class="search-section">
+
+    <div
+        class="search-box">
+
+        <i
+            class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            placeholder="Search Shop Name / Shop ID">
+
+        <button>
+
+            <i
+                class="fa-solid fa-sliders"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+QR CARD
+====================================================== -->
+
+<section
+    class="scan-card">
+
+    <div
+        class="scan-left">
+
+        <div
+            class="scan-icon">
+
+            <i
+                class="fa-solid fa-qrcode"></i>
 
         </div>
 
-    </section>
+    </div>
+
+    <div
+        class="scan-content">
+
+        <h3>
+
+            Scan Shop QR
+
+        </h3>
+
+        <p>
+
+            Scan any LocalShop QR
+            to open shop instantly.
+
+        </p>
+
+    </div>
+
+    <button
+        class="scan-btn">
+
+        <i
+            class="fa-solid fa-arrow-right"></i>
+
+    </button>
+
+</section>
 
 
 
-    <!-- ================= RECENT SHOPS ================= -->
+<!-- =====================================================
+TODAY OFFER
+====================================================== -->
 
-    <section class="recent-shops">
+<section
+    class="offer-banner">
 
-        <div class="container">
+    <div
+        class="offer-left">
 
-            <div class="section-header">
+        <span>
 
-                <h2>
+            TODAY OFFER
 
-                    Recent Shops
+        </span>
 
-                </h2>
+        <h3>
 
-                <a href="shops/">
+            Up to
 
-                    View All
+            50% OFF
 
-                </a>
+        </h3>
+
+        <p>
+
+            On selected shops
+
+        </p>
+
+    </div>
+
+    <img
+        src="assets/images/banners/offer.png">
+
+</section>
+
+
+
+<!-- =====================================================
+RECENT SHOPS
+====================================================== -->
+
+<section
+    class="section">
+
+    <div
+        class="section-title">
+
+        <h2>
+
+            Recent Shops
+
+        </h2>
+
+        <a href="#">
+
+            View All
+
+        </a>
+
+    </div>
+
+
+
+<div
+class="shop-scroll">
+
+
+
+<!-- SHOP -->
+
+<div
+class="shop-card">
+
+<div
+class="shop-image">
+
+<img
+src="assets/images/shops/shop1.jpg">
+
+<div
+class="shop-status">
+
+Open
+
+</div>
+
+</div>
+
+<div
+class="shop-body">
+
+<h3>
+
+Green Fresh
+
+</h3>
+
+<div
+class="rating">
+
+<i class="fa-solid fa-star"></i>
+
+4.8
+
+</div>
+
+<p>
+
+Vegetable Store
+
+</p>
+
+<div
+class="shop-location">
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Prayagraj
+
+</div>
+
+<a
+class="btn btn-primary">
+
+Open Shop
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- SHOP -->
+
+<div
+class="shop-card">
+
+<div
+class="shop-image">
+
+<img
+src="assets/images/shops/shop2.jpg">
+
+<div
+class="shop-status">
+
+Open
+
+</div>
+
+</div>
+
+<div
+class="shop-body">
+
+<h3>
+
+Care First
+
+</h3>
+
+<div
+class="rating">
+
+<i class="fa-solid fa-star"></i>
+
+4.9
+
+</div>
+
+<p>
+
+Medical Store
+
+</p>
+
+<div
+class="shop-location">
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Civil Lines
+
+</div>
+
+<a
+class="btn btn-primary">
+
+Open Shop
+
+</a>
+
+</div>
+
+</div>
+
+
+
+<!-- SHOP -->
+
+<div
+class="shop-card">
+
+<div
+class="shop-image">
+
+<img
+src="assets/images/shops/shop3.jpg">
+
+<div
+class="shop-status">
+
+Open
+
+</div>
+
+</div>
+
+<div
+class="shop-body">
+
+<h3>
+
+Sharma Grocery
+
+</h3>
+
+<div
+class="rating">
+
+<i class="fa-solid fa-star"></i>
+
+4.7
+
+</div>
+
+<p>
+
+Kirana Store
+
+</p>
+
+<div
+class="shop-location">
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Naini
+
+</div>
+
+<a
+class="btn btn-primary">
+
+Open Shop
+
+</a>
+
+</div>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+    <!-- =====================================================
+CATEGORIES
+====================================================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Categories
+
+        </h2>
+
+        <a href="#">
+
+            View All
+
+        </a>
+
+    </div>
+
+    <div class="category-grid">
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon vegetable">
+
+                <i class="fa-solid fa-carrot"></i>
 
             </div>
 
-            <div
-                class="shop-grid"
-                id="recentShopList">
+            <span>
+
+                Vegetables
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon fruit">
+
+                <i class="fa-solid fa-apple-whole"></i>
 
             </div>
+
+            <span>
+
+                Fruits
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon grocery">
+
+                <i class="fa-solid fa-basket-shopping"></i>
+
+            </div>
+
+            <span>
+
+                Grocery
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon medical">
+
+                <i class="fa-solid fa-briefcase-medical"></i>
+
+            </div>
+
+            <span>
+
+                Medical
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon restaurant">
+
+                <i class="fa-solid fa-utensils"></i>
+
+            </div>
+
+            <span>
+
+                Restaurant
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon cafe">
+
+                <i class="fa-solid fa-mug-hot"></i>
+
+            </div>
+
+            <span>
+
+                Cafe
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon salon">
+
+                <i class="fa-solid fa-scissors"></i>
+
+            </div>
+
+            <span>
+
+                Salon
+
+            </span>
+
+        </a>
+
+        <a href="#" class="category-card">
+
+            <div class="category-icon more">
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </div>
+
+            <span>
+
+                More
+
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+WHY LOCALSHOP
+====================================================== -->
+
+<section class="section why-section">
+
+    <div class="section-title">
+
+        <h2>
+
+            Why LocalShop?
+
+        </h2>
+
+    </div>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+
+            <i class="fa-solid fa-tags"></i>
+
+            <h4>
+
+                Live Prices
+
+            </h4>
+
+            <p>
+
+                Always updated
+                prices.
+
+            </p>
 
         </div>
 
-    </section>
+        <div class="why-card">
 
+            <i class="fa-solid fa-calculator"></i>
 
+            <h4>
 
-    <!-- ================= SHOP CATEGORIES ================= -->
+                Bill Calculator
 
-    <section class="categories">
+            </h4>
 
-        <div class="container">
+            <p>
 
-            <div class="section-header">
+                Calculate before
+                shopping.
 
-                <h2>
-
-                    Shop Categories
-
-                </h2>
-
-                <a href="categories/">
-
-                    View All
-
-                </a>
-
-            </div>
-
-            <div
-                class="category-grid">
-
-                <a href="/category/vegetables/">
-
-                    <img src="assets/images/categories/vegetables.png">
-
-                    <span>Vegetables</span>
-
-                </a>
-
-                <a href="/category/fruits/">
-
-                    <img src="assets/images/categories/fruits.png">
-
-                    <span>Fruits</span>
-
-                </a>
-
-                <a href="/category/grocery/">
-
-                    <img src="assets/images/categories/grocery.png">
-
-                    <span>Grocery</span>
-
-                </a>
-
-                <a href="/category/medical/">
-
-                    <img src="assets/images/categories/medical.png">
-
-                    <span>Medical</span>
-
-                </a>
-
-                <a href="/category/restaurant/">
-
-                    <img src="assets/images/categories/restaurant.png">
-
-                    <span>Restaurant</span>
-
-                </a>
-
-                <a href="/category/cafe/">
-
-                    <img src="assets/images/categories/cafe.png">
-
-                    <span>Cafe</span>
-
-                </a>
-
-                <a href="/category/others/">
-
-                    <img src="assets/images/categories/others.png">
-
-                    <span>Others</span>
-
-                </a>
-
-            </div>
+            </p>
 
         </div>
 
-    </section>
+        <div class="why-card">
 
-<!-- ================= WHY LOCALSHOP ================= -->
+            <i class="fa-solid fa-location-crosshairs"></i>
 
-    <section class="why-localshop">
+            <h4>
 
-        <div class="container">
+                Nearby Shops
 
-            <div class="section-header">
+            </h4>
 
-                <h2>
-                    Why LocalShop?
-                </h2>
+            <p>
 
-                <p>
-                    Everything you need before visiting a shop.
-                </p>
+                Find nearest
+                verified shops.
 
-            </div>
-
-            <div class="feature-grid">
-
-                <div class="feature-card">
-
-                    <img src="assets/images/icons/live-price.svg" alt="">
-
-                    <h3>Live Prices</h3>
-
-                    <p>
-                        View today's latest product prices before leaving your home.
-                    </p>
-
-                </div>
-
-                <div class="feature-card">
-
-                    <img src="assets/images/icons/verified.svg" alt="">
-
-                    <h3>Verified Shops</h3>
-
-                    <p>
-                        Every verified shop is reviewed before being published.
-                    </p>
-
-                </div>
-
-                <div class="feature-card">
-
-                    <img src="assets/images/icons/offer.svg" alt="">
-
-                    <h3>Latest Offers</h3>
-
-                    <p>
-                        Discover discounts and special offers from nearby shops.
-                    </p>
-
-                </div>
-
-                <div class="feature-card">
-
-                    <img src="assets/images/icons/calculator.svg" alt="">
-
-                    <h3>Bill Calculator</h3>
-
-                    <p>
-                        Calculate your estimated shopping bill instantly.
-                    </p>
-
-                </div>
-
-            </div>
+            </p>
 
         </div>
 
-    </section>
+        <div class="why-card">
 
+            <i class="fa-solid fa-shield-heart"></i>
 
+            <h4>
 
-    <!-- ================= HOW IT WORKS ================= -->
+                Trusted Shops
 
-    <section class="how-it-works">
+            </h4>
 
-        <div class="container">
+            <p>
 
-            <div class="section-header">
+                Verified
+                merchants.
 
-                <h2>
-
-                    How It Works
-
-                </h2>
-
-            </div>
-
-            <div class="steps-grid">
-
-                <div class="step-card">
-
-                    <div class="step-number">
-
-                        1
-
-                    </div>
-
-                    <img src="assets/images/icons/scan.svg" alt="">
-
-                    <h3>
-
-                        Scan QR
-
-                    </h3>
-
-                    <p>
-
-                        Scan LocalShop QR Code outside the shop.
-
-                    </p>
-
-                </div>
-
-                <div class="step-card">
-
-                    <div class="step-number">
-
-                        2
-
-                    </div>
-
-                    <img src="assets/images/icons/shop.svg" alt="">
-
-                    <h3>
-
-                        View Shop
-
-                    </h3>
-
-                    <p>
-
-                        Browse products, prices and offers.
-
-                    </p>
-
-                </div>
-
-                <div class="step-card">
-
-                    <div class="step-number">
-
-                        3
-
-                    </div>
-
-                    <img src="assets/images/icons/cart.svg" alt="">
-
-                    <h3>
-
-                        Select Products
-
-                    </h3>
-
-                    <p>
-
-                        Add products to estimate your bill.
-
-                    </p>
-
-                </div>
-
-                <div class="step-card">
-
-                    <div class="step-number">
-
-                        4
-
-                    </div>
-
-                    <img src="assets/images/icons/location.svg" alt="">
-
-                    <h3>
-
-                        Visit Shop
-
-                    </h3>
-
-                    <p>
-
-                        Visit the shop and purchase confidently.
-
-                    </p>
-
-                </div>
-
-            </div>
+            </p>
 
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
 
-    <!-- ================= SHOP OWNER CTA ================= -->
+<!-- =====================================================
+SHOP OWNER CTA
+====================================================== -->
 
-    <section class="merchant-section">
+<section class="merchant-banner">
 
-        <div class="container">
+    <div class="merchant-content">
 
-            <div class="merchant-card">
+        <h2>
 
-                <div class="merchant-content">
+            Are you a
+            Shop Owner?
 
-                    <h2>
+        </h2>
 
-                        Own a Local Shop?
+        <p>
 
-                    </h2>
+            Create your shop,
+            upload products,
+            update prices &
+            receive customers.
 
-                    <p>
+        </p>
 
-                        Create your digital shop in minutes.
+        <a
+            href="/merchant/"
+            class="btn btn-primary">
 
-                        Get your own QR Code, digital profile,
-                        product list and live pricing.
+            Register Shop
 
-                    </p>
+        </a>
 
-                    <a
-                        href="/merchant/"
-                        class="btn btn-primary">
+    </div>
 
-                        Register Your Shop
+    <img
+        src="assets/images/merchant/merchant-shop.png"
+        alt="Merchant">
 
-                    </a>
+</section>
 
-                </div>
 
-                <div class="merchant-image">
 
-                    <img
-                        src="assets/images/home/merchant.webp"
-                        alt="Merchant">
+<!-- =====================================================
+DOWNLOAD APP
+====================================================== -->
 
-                </div>
+<section class="download-app">
 
-            </div>
+    <div class="download-card">
+
+        <div>
+
+            <h3>
+
+                Get Better Experience
+
+            </h3>
+
+            <p>
+
+                Install LocalShop App
+
+            </p>
 
         </div>
 
-    </section>
+        <button
+            class="btn btn-success">
+
+            <i class="fa-solid fa-download"></i>
+
+            Install
+
+        </button>
+
+    </div>
+
+</section>
 
 
 
-    <!-- ================= FOOTER ================= -->
+<!-- =====================================================
+BOTTOM NAVIGATION
+====================================================== -->
 
-    <footer class="footer">
+<nav class="bottom-nav">
 
-        <div class="container">
+    <a
+        href="/"
+        class="active">
 
-            <div class="footer-grid">
+        <i
+            class="fa-solid fa-house"></i>
 
-                <div>
+        <span>
 
-                    <img
-                        src="assets/images/logo/localshop-logo-white.svg"
-                        alt="">
+            Home
 
-                    <p>
+        </span>
 
-                        LocalShop helps nearby shops become
-                        digital through QR technology.
+    </a>
 
-                    </p>
+    <a
+        href="/search/">
 
-                </div>
+        <i
+            class="fa-solid fa-magnifying-glass"></i>
 
-                <div>
+        <span>
 
-                    <h4>
+            Search
 
-                        Company
+        </span>
 
-                    </h4>
+    </a>
 
-                    <a href="/about/">About</a>
+    <a
+        href="/scan/"
+        class="scan-center">
 
-                    <a href="/privacy/">Privacy</a>
+        <div
+            class="scan-circle">
 
-                    <a href="/terms/">Terms</a>
-
-                    <a href="/contact/">Contact</a>
-
-                </div>
-
-                <div>
-
-                    <h4>
-
-                        Customer
-
-                    </h4>
-
-                    <a href="/search/">Search Shop</a>
-
-                    <a href="/scan/">QR Scan</a>
-
-                    <a href="/faq/">FAQ</a>
-
-                </div>
-
-                <div>
-
-                    <h4>
-
-                        Merchant
-
-                    </h4>
-
-                    <a href="/merchant/">Dashboard</a>
-
-                    <a href="/merchant/register/">Register</a>
-
-                </div>
-
-            </div>
-
-            <div class="footer-bottom">
-
-                <p>
-
-                    © 2026 LocalShop. All Rights Reserved.
-
-                </p>
-
-            </div>
+            <i
+                class="fa-solid fa-qrcode"></i>
 
         </div>
 
-    </footer>
+    </a>
+
+    <a
+        href="/offers/">
+
+        <i
+            class="fa-solid fa-tags"></i>
+
+        <span>
+
+            Offers
+
+        </span>
+
+    </a>
+
+    <a
+        href="/profile/">
+
+        <i
+            class="fa-regular fa-user"></i>
+
+        <span>
+
+            Profile
+
+        </span>
+
+    </a>
+
+</nav>
 
 
 
-    <!-- ================= LOADER ================= -->
+<!-- =====================================================
+GLOBAL COMPONENTS
+====================================================== -->
 
-    <div id="globalLoader"></div>
+<div id="toastContainer"></div>
 
-    <!-- ================= TOAST ================= -->
+<div id="loader">
 
-    <div id="toastContainer"></div>
+    <div class="loader"></div>
 
-    <!-- ================= MODAL ROOT ================= -->
+</div>
 
-    <div id="modalRoot"></div>
+<div id="modalRoot"></div>
 
-    <!-- ================= SCRIPTS ================= -->
 
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/storage.js"></script>
-    <script src="assets/js/utils.js"></script>
-    <script src="assets/js/api.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/router.js"></script>
-    <script src="assets/js/app.js"></script>
+
+<!-- =====================================================
+JS
+====================================================== -->
+
+<script src="assets/js/config.js"></script>
+
+<script src="assets/js/storage.js"></script>
+
+<script src="assets/js/utils.js"></script>
+
+<script src="assets/js/api.js"></script>
+
+<script src="assets/js/theme.js"></script>
+
+<script src="assets/js/home.js"></script>
+
+</div>
 
 </body>
 

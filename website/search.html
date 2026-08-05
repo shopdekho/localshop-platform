@@ -1,0 +1,1289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Search Shops • LocalShop
+
+    </title>
+
+    <meta
+        name="theme-color"
+        content="#2E7D32">
+
+    <link
+        rel="icon"
+        href="assets/images/logo/favicon.png">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="assets/css/variables.css">
+
+    <link rel="stylesheet"
+        href="assets/css/base.css">
+
+    <link rel="stylesheet"
+        href="assets/css/components.css">
+
+    <link rel="stylesheet"
+        href="assets/css/search.css">
+
+</head>
+
+<body>
+
+
+
+<div class="app">
+
+
+
+<!-- =====================================================
+HEADER
+===================================================== -->
+
+<header class="search-header">
+
+    <button
+        class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+    </button>
+
+    <h1>
+
+        Search Shops
+
+    </h1>
+
+    <button
+        class="notification-btn">
+
+        <i class="fa-regular fa-bell"></i>
+
+    </button>
+
+</header>
+
+
+
+<!-- =====================================================
+SEARCH BAR
+===================================================== -->
+
+<section class="search-top">
+
+    <div class="search-box">
+
+        <i
+            class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            placeholder="Search Shop, Category or Shop ID">
+
+        <button>
+
+            <i
+                class="fa-solid fa-microphone"></i>
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+ACTION BUTTONS
+===================================================== -->
+
+<section
+    class="quick-actions">
+
+    <button
+        class="action-card">
+
+        <i
+            class="fa-solid fa-qrcode"></i>
+
+        <span>
+
+            Scan QR
+
+        </span>
+
+    </button>
+
+    <button
+        class="action-card">
+
+        <i
+            class="fa-solid fa-location-crosshairs"></i>
+
+        <span>
+
+            Near Me
+
+        </span>
+
+    </button>
+
+    <button
+        class="action-card">
+
+        <i
+            class="fa-solid fa-sliders"></i>
+
+        <span>
+
+            Filter
+
+        </span>
+
+    </button>
+
+</section>
+
+
+
+<!-- =====================================================
+RECENT SEARCH
+===================================================== -->
+
+<section
+    class="section">
+
+    <div
+        class="section-title">
+
+        <h2>
+
+            Recent Search
+
+        </h2>
+
+        <button>
+
+            Clear
+
+        </button>
+
+    </div>
+
+    <div
+        class="recent-list">
+
+        <a href="#">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Green Fresh Vegetable
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Sharma Grocery
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Care First Medical
+
+        </a>
+
+        <a href="#">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+            Raj Restaurant
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+POPULAR CATEGORY
+===================================================== -->
+
+<section
+    class="section">
+
+    <div
+        class="section-title">
+
+        <h2>
+
+            Popular Categories
+
+        </h2>
+
+    </div>
+
+    <div
+        class="chip-scroll">
+
+        <a
+            class="chip active">
+
+            <i class="fa-solid fa-carrot"></i>
+
+            Vegetable
+
+        </a>
+
+        <a
+            class="chip">
+
+            <i class="fa-solid fa-apple-whole"></i>
+
+            Fruits
+
+        </a>
+
+        <a
+            class="chip">
+
+            <i class="fa-solid fa-basket-shopping"></i>
+
+            Grocery
+
+        </a>
+
+        <a
+            class="chip">
+
+            <i class="fa-solid fa-briefcase-medical"></i>
+
+            Medical
+
+        </a>
+
+        <a
+            class="chip">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            Restaurant
+
+        </a>
+
+        <a
+            class="chip">
+
+            <i class="fa-solid fa-mug-hot"></i>
+
+            Cafe
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+NEARBY SHOPS
+===================================================== -->
+
+<section
+    class="section">
+
+    <div
+        class="section-title">
+
+        <h2>
+
+            Nearby Shops
+
+        </h2>
+
+        <a href="#">
+
+            View All
+
+        </a>
+
+    </div>
+
+
+
+<div
+class="search-result-list">
+
+
+
+<!-- RESULT -->
+
+<div
+class="result-card">
+
+<div
+class="result-image">
+
+<img
+src="assets/images/shops/shop1.jpg">
+
+<div
+class="verified">
+
+<i
+class="fa-solid fa-circle-check"></i>
+
+</div>
+
+</div>
+
+<div
+class="result-body">
+
+<div
+class="top-row">
+
+<h3>
+
+Green Fresh
+
+</h3>
+
+<div
+class="distance">
+
+800m
+
+</div>
+
+</div>
+
+<div
+class="rating">
+
+<i
+class="fa-solid fa-star"></i>
+
+4.8
+
+<span>
+
+(320)
+
+</span>
+
+</div>
+
+<p>
+
+Fresh Vegetables &
+Fruits
+
+</p>
+
+<div
+class="meta">
+
+<span>
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Civil Lines
+
+</span>
+
+<span>
+
+Open
+
+</span>
+
+</div>
+
+<div
+class="action-row">
+
+<button
+class="btn btn-outline">
+
+Details
+
+</button>
+
+<button
+class="btn btn-primary">
+
+Open
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+  <!-- RESULT -->
+
+<div
+class="result-card">
+
+<div
+class="result-image">
+
+<img
+src="assets/images/shops/shop2.jpg">
+
+<div
+class="verified">
+
+<i
+class="fa-solid fa-circle-check"></i>
+
+</div>
+
+</div>
+
+<div
+class="result-body">
+
+<div
+class="top-row">
+
+<h3>
+
+Care First Medical
+
+</h3>
+
+<div
+class="distance">
+
+1.2 km
+
+</div>
+
+</div>
+
+<div
+class="rating">
+
+<i
+class="fa-solid fa-star"></i>
+
+4.9
+
+<span>
+
+(512)
+
+</span>
+
+</div>
+
+<p>
+
+24×7 Pharmacy &
+Healthcare
+
+</p>
+
+<div
+class="meta">
+
+<span>
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Prayagraj
+
+</span>
+
+<span class="open">
+
+Open
+
+</span>
+
+</div>
+
+<div
+class="offer-chip">
+
+<i
+class="fa-solid fa-tags"></i>
+
+10% OFF Today
+
+</div>
+
+<div
+class="action-row">
+
+<button
+class="btn btn-outline">
+
+Details
+
+</button>
+
+<button
+class="btn btn-primary">
+
+Open
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- RESULT -->
+
+<div
+class="result-card">
+
+<div
+class="result-image">
+
+<img
+src="assets/images/shops/shop3.jpg">
+
+<div
+class="verified">
+
+<i
+class="fa-solid fa-circle-check"></i>
+
+</div>
+
+</div>
+
+<div
+class="result-body">
+
+<div
+class="top-row">
+
+<h3>
+
+Sharma Grocery
+
+</h3>
+
+<div
+class="distance">
+
+900m
+
+</div>
+
+</div>
+
+<div
+class="rating">
+
+<i
+class="fa-solid fa-star"></i>
+
+4.7
+
+<span>
+
+(189)
+
+</span>
+
+</div>
+
+<p>
+
+Daily Grocery &
+Household Items
+
+</p>
+
+<div
+class="meta">
+
+<span>
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Naini
+
+</span>
+
+<span class="open">
+
+Open
+
+</span>
+
+</div>
+
+<div
+class="offer-chip">
+
+<i
+class="fa-solid fa-gift"></i>
+
+Free Home Delivery
+
+</div>
+
+<div
+class="action-row">
+
+<button
+class="btn btn-outline">
+
+Details
+
+</button>
+
+<button
+class="btn btn-primary">
+
+Open
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- RESULT -->
+
+<div
+class="result-card">
+
+<div
+class="result-image">
+
+<img
+src="assets/images/shops/shop4.jpg">
+
+<div
+class="verified">
+
+<i
+class="fa-solid fa-circle-check"></i>
+
+</div>
+
+</div>
+
+<div
+class="result-body">
+
+<div
+class="top-row">
+
+<h3>
+
+Raj Restaurant
+
+</h3>
+
+<div
+class="distance">
+
+2.1 km
+
+</div>
+
+</div>
+
+<div
+class="rating">
+
+<i
+class="fa-solid fa-star"></i>
+
+4.6
+
+<span>
+
+(864)
+
+</span>
+
+</div>
+
+<p>
+
+Family Restaurant &
+Fast Food
+
+</p>
+
+<div
+class="meta">
+
+<span>
+
+<i
+class="fa-solid fa-location-dot"></i>
+
+Katra
+
+</span>
+
+<span class="busy">
+
+Busy
+
+</span>
+
+</div>
+
+<div
+class="offer-chip">
+
+<i
+class="fa-solid fa-fire"></i>
+
+Buy 1 Get 1
+
+</div>
+
+<div
+class="action-row">
+
+<button
+class="btn btn-outline">
+
+Menu
+
+</button>
+
+<button
+class="btn btn-primary">
+
+Open
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+POPULAR SEARCHES
+===================================================== -->
+
+<section
+class="section">
+
+<div
+class="section-title">
+
+<h2>
+
+Trending Searches
+
+</h2>
+
+</div>
+
+<div
+class="popular-search-list">
+
+<a href="#">
+
+<i
+class="fa-solid fa-arrow-trend-up"></i>
+
+Fresh Vegetables
+
+</a>
+
+<a href="#">
+
+<i
+class="fa-solid fa-arrow-trend-up"></i>
+
+Medical Store
+
+</a>
+
+<a href="#">
+
+<i
+class="fa-solid fa-arrow-trend-up"></i>
+
+Milk Dairy
+
+</a>
+
+<a href="#">
+
+<i
+class="fa-solid fa-arrow-trend-up"></i>
+
+Bakery
+
+</a>
+
+<a href="#">
+
+<i
+class="fa-solid fa-arrow-trend-up"></i>
+
+Restaurant
+
+</a>
+
+<a href="#">
+
+<i
+class="fa-solid fa-arrow-trend-up"></i>
+
+Salon
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+EMPTY STATE
+===================================================== -->
+
+<section
+class="empty-search hidden">
+
+<img
+src="assets/images/search/no-result.webp">
+
+<h2>
+
+No Shop Found
+
+</h2>
+
+<p>
+
+Try another shop name,
+category or nearby location.
+
+</p>
+
+<button
+class="btn btn-primary">
+
+Search Again
+
+</button>
+
+</section>
+
+
+
+<!-- =====================================================
+FILTER BOTTOM SHEET
+===================================================== -->
+
+<div
+id="filterSheet"
+class="bottom-sheet">
+
+<div
+class="sheet-handle"></div>
+
+<h2>
+
+Filter Shops
+
+</h2>
+
+<div
+class="filter-group">
+
+<label>
+
+Distance
+
+</label>
+
+<input
+type="range">
+
+</div>
+
+<div
+class="filter-group">
+
+<label>
+
+Rating
+
+</label>
+
+<select>
+
+<option>
+
+4★ & Above
+
+</option>
+
+<option>
+
+3★ & Above
+
+</option>
+
+<option>
+
+2★ & Above
+
+</option>
+
+</select>
+
+</div>
+
+<div
+class="filter-group">
+
+<label>
+
+Shop Status
+
+</label>
+
+<div
+class="status-buttons">
+
+<button>
+
+Open
+
+</button>
+
+<button>
+
+Offers
+
+</button>
+
+<button>
+
+Verified
+
+</button>
+
+</div>
+
+</div>
+
+<button
+class="btn btn-primary">
+
+Apply Filter
+
+</button>
+
+</div>
+
+  <!-- =====================================================
+SEARCH HISTORY SUGGESTIONS
+===================================================== -->
+
+<section
+class="section">
+
+<div
+class="section-title">
+
+<h2>
+
+You May Like
+
+</h2>
+
+</div>
+
+<div
+class="suggestion-grid">
+
+<a
+href="#"
+class="suggest-card">
+
+<i
+class="fa-solid fa-seedling"></i>
+
+<span>
+
+Vegetable Shop
+
+</span>
+
+</a>
+
+<a
+href="#"
+class="suggest-card">
+
+<i
+class="fa-solid fa-pills"></i>
+
+<span>
+
+Medical
+
+</span>
+
+</a>
+
+<a
+href="#"
+class="suggest-card">
+
+<i
+class="fa-solid fa-basket-shopping"></i>
+
+<span>
+
+Grocery
+
+</span>
+
+</a>
+
+<a
+href="#"
+class="suggest-card">
+
+<i
+class="fa-solid fa-bread-slice"></i>
+
+<span>
+
+Bakery
+
+</span>
+
+</a>
+
+<a
+href="#"
+class="suggest-card">
+
+<i
+class="fa-solid fa-fish"></i>
+
+<span>
+
+Fish Market
+
+</span>
+
+</a>
+
+<a
+href="#"
+class="suggest-card">
+
+<i
+class="fa-solid fa-mug-hot"></i>
+
+<span>
+
+Cafe
+
+</span>
+
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+BOTTOM NAVIGATION
+===================================================== -->
+
+<nav
+class="bottom-nav">
+
+<a
+href="index.html">
+
+<i
+class="fa-solid fa-house"></i>
+
+<span>
+
+Home
+
+</span>
+
+</a>
+
+<a
+href="search.html"
+class="active">
+
+<i
+class="fa-solid fa-magnifying-glass"></i>
+
+<span>
+
+Search
+
+</span>
+
+</a>
+
+<a
+href="#"
+class="scan-center">
+
+<div
+class="scan-circle">
+
+<i
+class="fa-solid fa-qrcode"></i>
+
+</div>
+
+</a>
+
+<a
+href="offers.html">
+
+<i
+class="fa-solid fa-tags"></i>
+
+<span>
+
+Offers
+
+</span>
+
+</a>
+
+<a
+href="profile.html">
+
+<i
+class="fa-regular fa-user"></i>
+
+<span>
+
+Profile
+
+</span>
+
+</a>
+
+</nav>
+
+
+
+<!-- =====================================================
+GLOBAL COMPONENTS
+===================================================== -->
+
+<div
+id="loader">
+
+<div
+class="loader"></div>
+
+</div>
+
+<div
+id="toastContainer"></div>
+
+<div
+id="modalRoot"></div>
+
+
+
+<!-- =====================================================
+JAVASCRIPT
+===================================================== -->
+
+<script src="assets/js/config.js"></script>
+
+<script src="assets/js/storage.js"></script>
+
+<script src="assets/js/utils.js"></script>
+
+<script src="assets/js/api.js"></script>
+
+<script src="assets/js/theme.js"></script>
+
+<script src="assets/js/search.js"></script>
+
+</div>
+
+</body>
+
+</html>

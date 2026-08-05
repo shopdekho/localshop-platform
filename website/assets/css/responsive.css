@@ -1,95 +1,880 @@
-
 /*
-Project: LocalShop Platform
-File: responsive.css
-Version: 0.1.0
+=========================================================
+Project      : LocalShop Platform
+Repository   : localshop-platform
+File         : responsive.css
+Part         : 1
+=========================================================
 */
 
-@media (max-width:1440px){
-.container{max-width:1200px;}
+
+/* =========================================================
+Desktop Large
+========================================================= */
+
+@media (max-width:1400px){
+
+.container{
+
+    max-width:1200px;
+
 }
+
+.hero-grid{
+
+    grid-template-columns:
+    1fr
+    470px;
+
+}
+
+.hero-left h1{
+
+    font-size:52px;
+
+}
+
+.section-header h2{
+
+    font-size:36px;
+
+}
+
+}
+
+
+
+/* =========================================================
+Laptop
+========================================================= */
 
 @media (max-width:1200px){
-.container{max-width:1000px;}
-.shop-card{width:100%;}
+
+.container{
+
+    max-width:1000px;
+
 }
+
+.hero{
+
+    padding:70px 0;
+
+}
+
+.hero-grid{
+
+    gap:45px;
+
+}
+
+.hero-left h1{
+
+    font-size:46px;
+
+}
+
+.hero-left p{
+
+    font-size:17px;
+
+}
+
+.shop-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+.category-grid{
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+}
+
+.feature-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+.steps-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+.merchant-card{
+
+    grid-template-columns:
+    1fr;
+
+    text-align:center;
+
+}
+
+.merchant-image{
+
+    justify-content:center;
+
+}
+
+.footer-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+}
+
+
+
+/* =========================================================
+Tablet
+========================================================= */
 
 @media (max-width:992px){
-.desktop-nav{display:none;}
-.menu-button{display:flex;}
-.hero{padding:64px 0;}
+
+.header{
+
+    height:68px;
+
+}
+
+.header-container{
+
+    height:68px;
+
+}
+
+.desktop-nav{
+
+    display:none;
+
+}
+
+.header-right{
+
+    display:none;
+
+}
+
+.hero{
+
+    padding:60px 0;
+
+}
+
+.hero-grid{
+
+    grid-template-columns:
+    1fr;
+
+    text-align:center;
+
+}
+
+.hero-right{
+
+    justify-content:center;
+
+}
+
+.hero-right img{
+
+    max-width:450px;
+
+}
+
+.hero-left h1{
+
+    font-size:42px;
+
+}
+
+.hero-left p{
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+.scanner-card{
+
+    grid-template-columns:
+    1fr;
+
+    text-align:center;
+
+}
+
+.scanner-icon{
+
+    margin:auto;
+
+}
+
+.scanner-features ul{
+
+    align-items:center;
+
+}
+
+.shop-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
 .category-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:16px;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
 }
+
+.feature-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
 }
+
+.steps-grid{
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+}
+
+.section-header{
+
+    flex-direction:column;
+
+    gap:16px;
+
+    text-align:center;
+
+}
+
+}
+
+
+
+/* =========================================================
+Large Mobile
+========================================================= */
 
 @media (max-width:768px){
+
 .container{
-width:calc(100% - 32px);
+
+    width:calc(100% - 32px);
+
 }
-.header{
-height:64px;
+
+.hero{
+
+    padding:50px 0;
+
 }
-.hero h1{
-font-size:32px;
+
+.hero-left h1{
+
+    font-size:36px;
+
 }
-.hero p{
-font-size:15px;
+
+.hero-left p{
+
+    font-size:16px;
+
 }
+
+.search-box{
+
+    height:56px;
+
+}
+
+.search-box input{
+
+    font-size:15px;
+
+}
+
+.shop-grid{
+
+    grid-template-columns:
+    1fr;
+
+}
+
 .category-grid{
-grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
 }
-.btn{
-width:100%;
+
+.feature-grid{
+
+    grid-template-columns:
+    1fr;
+
 }
-.shop-card-body{
-padding:14px;
+
+.steps-grid{
+
+    grid-template-columns:
+    1fr;
+
 }
-section{
-padding:48px 0;
+
+.footer-grid{
+
+    grid-template-columns:
+    1fr;
+
+    text-align:center;
+
 }
+
+.footer-grid p{
+
+    margin:auto;
+
 }
+
+.footer-grid img{
+
+    margin-left:auto;
+
+    margin-right:auto;
+
+}
+
+.merchant-card{
+
+    padding:40px 30px;
+
+}
+
+.merchant-content h2{
+
+    font-size:34px;
+
+}
+
+.merchant-content p{
+
+    font-size:16px;
+
+}
+
+.scanner-card{
+
+    padding:30px;
+
+}
+
+}
+
+/* =========================================================
+Mobile
+========================================================= */
 
 @media (max-width:576px){
-.hero{
-padding:48px 0;
-}
-.hero h1{
-font-size:28px;
-}
-.hero-actions{
-display:flex;
-flex-direction:column;
-gap:12px;
-}
-.category-grid{
-grid-template-columns:1fr 1fr;
-gap:12px;
-}
-.card{
-padding:16px;
-}
-.modal-content{
-width:calc(100% - 24px);
-padding:18px;
-}
-.toast{
-left:12px;
-right:12px;
-bottom:12px;
-}
+
+.header{
+
+    height:64px;
+
 }
 
-@media (max-width:400px){
-.container{
-width:calc(100% - 24px);
+.header-container{
+
+    height:64px;
+
 }
-.hero h1{
-font-size:24px;
+
+.logo img{
+
+    height:40px;
+
 }
+
+.hero{
+
+    padding:40px 0;
+
+}
+
+.hero-left h1{
+
+    font-size:30px;
+
+    line-height:1.25;
+
+}
+
+.hero-left p{
+
+    font-size:15px;
+
+    line-height:1.7;
+
+}
+
+#searchForm{
+
+    margin-top:28px;
+
+}
+
+.search-box{
+
+    height:54px;
+
+    border-radius:14px;
+
+}
+
+.search-box input{
+
+    padding:0 16px;
+
+    font-size:14px;
+
+}
+
+.btn{
+
+    width:100%;
+
+    min-width:100%;
+
+}
+
+.divider{
+
+    margin:14px 0;
+
+}
+
+.hero-right img{
+
+    max-width:100%;
+
+}
+
+.scanner-section{
+
+    padding:50px 0;
+
+}
+
+.scanner-card{
+
+    padding:24px;
+
+    border-radius:18px;
+
+}
+
+.scanner-content h2{
+
+    font-size:28px;
+
+}
+
+.scanner-content p{
+
+    font-size:15px;
+
+}
+
+.shop-card-body{
+
+    padding:20px;
+
+}
+
+.shop-name h3{
+
+    font-size:20px;
+
+}
+
+.shop-meta{
+
+    flex-direction:column;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+}
+
+.shop-actions{
+
+    flex-direction:column;
+
+}
+
 .category-grid{
-grid-template-columns:1fr;
+
+    grid-template-columns:1fr;
+
 }
+
+.category-grid a{
+
+    padding:24px;
+
 }
+
+.feature-card{
+
+    padding:28px 20px;
+
+}
+
+.step-card{
+
+    padding:32px 20px;
+
+}
+
+.step-card img{
+
+    width:70px;
+
+}
+
+.merchant-card{
+
+    padding:30px 20px;
+
+    border-radius:20px;
+
+}
+
+.merchant-content h2{
+
+    font-size:28px;
+
+}
+
+.merchant-content p{
+
+    font-size:15px;
+
+}
+
+.merchant-image img{
+
+    max-width:300px;
+
+}
+
+.footer{
+
+    padding-top:60px;
+
+}
+
+.footer-grid{
+
+    gap:35px;
+
+}
+
+.footer-bottom{
+
+    margin-top:40px;
+
+}
+
+.modal-box{
+
+    width:calc(100% - 24px);
+
+    padding:24px;
+
+    border-radius:18px;
+
+}
+
+.toast{
+
+    min-width:auto;
+
+    width:calc(100% - 24px);
+
+    margin:0 12px;
+
+}
+
+}
+
+
+
+/* =========================================================
+Small Mobile
+========================================================= */
+
+@media (max-width:420px){
+
+.container{
+
+    width:calc(100% - 24px);
+
+}
+
+.hero-left h1{
+
+    font-size:26px;
+
+}
+
+.hero-left p{
+
+    font-size:14px;
+
+}
+
+.section-header h2{
+
+    font-size:28px;
+
+}
+
+.shop-card-banner{
+
+    height:170px;
+
+}
+
+.shop-card-body{
+
+    padding:18px;
+
+}
+
+.shop-name h3{
+
+    font-size:18px;
+
+}
+
+.category-grid img{
+
+    width:64px;
+
+}
+
+.feature-card img{
+
+    width:60px;
+
+}
+
+.scanner-icon{
+
+    width:80px;
+
+    height:80px;
+
+}
+
+.scanner-icon img{
+
+    width:46px;
+
+}
+
+.merchant-image img{
+
+    max-width:260px;
+
+}
+
+.footer-grid h4{
+
+    font-size:18px;
+
+}
+
+.footer-grid a{
+
+    font-size:14px;
+
+}
+
+}
+
+
+
+/* =========================================================
+Extra Small Devices
+========================================================= */
+
+@media (max-width:360px){
+
+.hero-left h1{
+
+    font-size:23px;
+
+}
+
+.section-header h2{
+
+    font-size:24px;
+
+}
+
+.search-box{
+
+    height:50px;
+
+}
+
+.btn{
+
+    height:48px;
+
+    font-size:14px;
+
+}
+
+.shop-card-banner{
+
+    height:155px;
+
+}
+
+.category-grid a{
+
+    padding:20px;
+
+}
+
+.scanner-card{
+
+    padding:20px;
+
+}
+
+.feature-card{
+
+    padding:24px 18px;
+
+}
+
+.step-card{
+
+    padding:24px 18px;
+
+}
+
+}
+
+
+
+/* =========================================================
+Landscape Mobile
+========================================================= */
+
+@media (max-height:500px) and (orientation:landscape){
+
+.hero{
+
+    padding:35px 0;
+
+}
+
+.hero-grid{
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+}
+
+.hero-left{
+
+    text-align:left;
+
+}
+
+.hero-left p{
+
+    margin-left:0;
+
+}
+
+.hero-right{
+
+    justify-content:flex-end;
+
+}
+
+.hero-right img{
+
+    max-width:340px;
+
+}
+
+}
+
+
+
+/* =========================================================
+Print
+========================================================= */
+
+@media print{
+
+.header,
+.footer,
+.btn,
+#toastContainer,
+#globalLoader,
+#modalRoot{
+
+    display:none !important;
+
+}
+
+body{
+
+    background:#fff;
+
+    color:#000;
+
+}
+
+.container{
+
+    width:100%;
+
+    max-width:100%;
+
+}
+
+}
+
+
+
+/* =========================================================
+END OF responsive.css
+Version : 1.0
+========================================================= */

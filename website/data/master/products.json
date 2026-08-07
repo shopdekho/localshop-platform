@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "products": {
+    "tomato": {
+      "name": "Tomato",
+      "nameHi": "टमाटर",
+      "image": "https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg",
+      "unit": "kg",
+      "category": "vegetable"
+    },
+      "tomato": {
+      "name": "Tomato",
+      "nameHi": "टमाटर",
+      "image": "https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg",
+      "unit": "kg",
+      "category": "vegetable"
+    },
+    "potato": {
+      "name": "Potato",
+      "nameHi": "आलू",
+      "image": "https://5.imimg.com/data5/SELLER/Default/2021/9/YP/XC/AS/22640664/potato-aalu-500x500.jpg",
+      "unit": "kg",
+      "category": "vegetable"
+    },
+    "onion": {
+      "name": "Onion",
+      "nameHi": "प्याज",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8gUPxNg-EGRa0KYU_tX1rRYYzPZxM-OElnTiXqXIYdxx9Wwzbk-3-n8&s=10",
+      "unit": "kg",
+      "category": "vegetable"
+    },
+    "green_chilli": {
+      "name": "Green Chilli",
+      "nameHi": "हरी मिर्च",
+      "image": "https://t4.ftcdn.net/jpg/00/55/53/45/360_F_55534593_bcuiI7vujoIEoYf7jlaIU1in32WlCvld.jpg",
+      "unit": "kg",
+      "category": "vegetable"
+    },
+    "cauliflower": {
+      "name": "Cauliflower",
+      "nameHi": "फूलगोभी",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRulkXv3RhNWgqOIH-JWS--W6hl72EBMsxqkzAQDcXVSOyMuMtDuaclpys&s=10",
+      "unit": "piece",
+      "category": "vegetable"
+    },
+    "cabbage": {
+      "name": "Cabbage",
+      "nameHi": "पत्तागोभी",
+      "image": "https://media.istockphoto.com/id/673162168/photo/green-cabbage-isolated-on-white.jpg?s=612x612&w=0&k=20&c=mCc4mXATvCcfp2E9taRJBp-QPYQ_LCj6nE1D7geaqVk=",
+      "unit": "piece",
+      "category": "vegetable"
+    }
+  }
+}

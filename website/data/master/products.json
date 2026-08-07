@@ -8,10 +8,10 @@
       "unit": "kg",
       "category": "vegetable"
     },
-      "tomato": {
-      "name": "Tomato",
-      "nameHi": "टमाटर",
-      "image": "https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg",
+      "Beet Root": {
+      "name": "Beet Root",
+      "nameHi": "चुकंदर",
+      "image": "https://m.media-amazon.com/images/I/61ywysZJ6TL._AC_UF1000,1000_QL80_.jpg",
       "unit": "kg",
       "category": "vegetable"
     },

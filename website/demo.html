@@ -10,37 +10,19 @@
 <title>Shop Landing, Product List & Cart / Bill Summary</title>
 <style>
   :root{
-    --green:#0E6B3A;
-    --green-dark:#0A4F2B;
-    --green-light:#E3F1E7;
-    --off:#F7F8F7;
-    --text:#1B1F1D;
-    --sub:#6B7570;
-    --border:#E6E9E7;
-    --strike:#A9B0AC;
-    --white:#fff;
-    --danger:#D64545;
-    --gold:#E8A93B;
+    --green:#0E6B3A; --green-dark:#0A4F2B; --green-light:#E3F1E7;
+    --off:#F7F8F7; --text:#1B1F1D; --sub:#6B7570; --border:#E6E9E7;
+    --strike:#A9B0AC; --white:#fff; --danger:#D64545; --gold:#E8A93B;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html, body{height:100%;}
-  body{
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background:var(--off);
-    color:var(--text);
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; background:var(--off); color:var(--text);}
   .hidden{display:none !important;}
 
-  .phone{
-    width:100%; max-width:480px; margin:0 auto; background:var(--off);
-    display:flex; flex-direction:column; height:100vh; height:100dvh; overflow:hidden; position:relative;
-  }
+  .phone{width:100%; max-width:480px; margin:0 auto; background:var(--off); display:flex; flex-direction:column; height:100vh; height:100dvh; overflow:hidden; position:relative;}
   .screen{flex:1; display:flex; flex-direction:column; min-height:0; overflow:hidden;}
 
-  .header{
-    background:var(--white); padding:calc(env(safe-area-inset-top, 0px) + 14px) 16px 12px;
-    display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--border); flex-shrink:0;
-  }
+  .header{background:var(--white); padding:calc(env(safe-area-inset-top,0px) + 14px) 16px 12px; display:flex; align-items:center; gap:12px; border-bottom:1px solid var(--border); flex-shrink:0;}
   .back-btn{width:34px;height:34px; border-radius:50%; background:var(--off); display:flex;align-items:center;justify-content:center; flex-shrink:0; cursor:pointer; border:none;}
   .back-btn svg{width:18px;height:18px;}
   .header-title{flex:1; min-width:0;}
@@ -49,7 +31,7 @@
   .header-title h1{font-size:16px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
   .header-title p{font-size:12px; color:var(--sub); margin-top:1px;}
   .view-toggle{display:flex; background:var(--off); border-radius:10px; padding:3px; gap:2px; flex-shrink:0;}
-  .view-toggle button{width:30px;height:30px; border:none; background:transparent; border-radius:8px; display:flex;align-items:center;justify-content:center; cursor:pointer; color:var(--sub); transition:all .15s ease;}
+  .view-toggle button{width:30px;height:30px; border:none; background:transparent; border-radius:8px; display:flex;align-items:center;justify-content:center; cursor:pointer; color:var(--sub);}
   .view-toggle button.active{background:var(--green); color:#fff;}
   .view-toggle button svg{width:16px;height:16px;}
 
@@ -59,48 +41,43 @@
   .chip.active{background:var(--green); border-color:var(--green); color:#fff;}
 
   .product-area{flex:1; min-height:0; overflow-y:auto; padding:14px 14px 14px; -webkit-overflow-scrolling:touch;}
+  .loading-msg{padding:40px 20px; text-align:center; color:var(--sub); font-size:13px;}
 
-  /* GRID VIEW (shared) — 3 columns, tightened so everything fits */
+  /* GRID VIEW */
   .grid-view{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:7px;}
   .g-card{background:var(--white); border-radius:11px; border:1px solid var(--border); padding:6px; display:flex; flex-direction:column; position:relative; min-width:0; overflow:hidden;}
   .g-card .img-wrap{position:relative; border-radius:9px; overflow:hidden; aspect-ratio:1/1; background:#f2f2f2; margin-bottom:6px;}
+  .g-card .img-wrap img{width:100%; height:72%; object-fit:cover; display:block;}
   .dummy-img{width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:30px;}
-  .off-badge{position:absolute; top:3px; left:3px; background:var(--green); color:#fff; font-size:7.5px; font-weight:700; padding:2px 4px; border-radius:5px;}
+  .off-badge{position:absolute; top:3px; left:3px; background:var(--green); color:#fff; font-size:7.5px; font-weight:700; padding:2px 4px; border-radius:5px; z-index:2;}
   .remove-x{position:absolute; top:3px; right:3px; width:17px; height:17px; border-radius:50%; background:rgba(0,0,0,.45); color:#fff; border:none; font-size:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:2;}
-  .g-card h3{font-size:10.5px; font-weight:700; margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .g-card h3{font-size:10px; font-weight:700; margin-bottom:2px; line-height:1.25;}
+  .g-card h3 .name-hi{display:block; font-weight:600; color:var(--sub); font-size:9px;}
   .price-row{display:flex; align-items:baseline; gap:3px; font-size:9.5px; margin-bottom:5px; flex-wrap:wrap; min-width:0;}
   .price-row .price{font-weight:700; color:var(--text); white-space:nowrap;}
   .price-row .mrp{color:var(--strike); text-decoration:line-through; font-size:8.5px; white-space:nowrap;}
 
-  /* Quantity selector (dropdown + custom) — width:0 + flex:1 keeps native <select> from blowing out the grid column */
   .qty-select-wrap{display:flex; gap:3px; align-items:center; min-width:0;}
-  .qty-select{
-    flex:1; width:0; min-width:0; font-size:9px; font-weight:600; padding:5px 2px; border-radius:6px;
-    border:1px solid var(--border); background:var(--green-light); color:var(--text); font-family:inherit;
-    text-overflow:ellipsis;
-  }
-  .mini-remove{
-    width:21px;height:21px; border-radius:6px; background:var(--off); border:1px solid var(--border);
-    color:var(--danger); font-size:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;
-  }
+  .qty-select{flex:1; width:0; min-width:0; font-size:9px; font-weight:600; padding:5px 2px; border-radius:6px; border:1px solid var(--border); background:var(--green-light); color:var(--text); font-family:inherit;}
+  .mini-remove{width:21px;height:21px; border-radius:6px; background:var(--off); border:1px solid var(--border); color:var(--danger); font-size:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; flex-shrink:0;}
   .custom-qty-row{display:flex; gap:3px; margin-top:4px; min-width:0;}
   .custom-qty-row.hidden{display:none;}
   .custom-qty-input{flex:1; width:0; min-width:0; font-size:9px; padding:5px 4px; border:1px solid var(--border); border-radius:6px; font-family:inherit;}
   .custom-unit-select{flex-shrink:0; width:38px; font-size:9px; padding:5px 2px; border:1px solid var(--border); border-radius:6px; background:#fff; font-family:inherit;}
 
-  .add-btn{
-    width:100%; background:var(--green); color:#fff; border:none; border-radius:8px; padding:6px 0;
-    font-weight:700; font-size:11px; cursor:pointer; display:flex;align-items:center;justify-content:center; gap:4px;
-  }
+  .add-btn{width:100%; background:var(--green); color:#fff; border:none; border-radius:8px; padding:6px 0; font-weight:700; font-size:11px; cursor:pointer; display:flex;align-items:center;justify-content:center; gap:4px;}
   .subtotal-tag{margin-top:4px; font-size:9px; color:var(--sub); text-align:right;}
   .subtotal-tag b{color:var(--text);}
+  .stock-badge{background:#FBE7E7; color:var(--danger); font-size:10px; font-weight:700; text-align:center; padding:6px 0; border-radius:8px;}
 
-  /* LIST VIEW (shared) */
+  /* LIST VIEW */
   .list-view{display:flex; flex-direction:column; gap:10px;}
   .l-card{background:var(--white); border-radius:14px; border:1px solid var(--border); padding:12px; display:flex; gap:12px; align-items:center; position:relative;}
   .l-card .img-wrap{width:64px;height:64px; border-radius:10px; overflow:hidden; flex-shrink:0; background:#f2f2f2; position:relative;}
+  .l-card .img-wrap img{width:100%; height:72%; object-fit:cover;}
   .l-info{flex:1; min-width:0;}
-  .l-info h3{font-size:14.5px; font-weight:700; margin-bottom:3px;}
+  .l-info h3{font-size:14px; font-weight:700; margin-bottom:2px;}
+  .l-info h3 .name-hi{color:var(--sub); font-weight:600; font-size:12px;}
   .l-info .price-row{font-size:12.5px;}
   .l-info .price-row .mrp{font-size:11px;}
   .l-controls{flex-shrink:0; display:flex; flex-direction:column; align-items:flex-end; gap:6px; width:136px;}
@@ -109,13 +86,10 @@
   .l-controls .custom-qty-row{width:100%;}
   .l-controls .add-btn{width:100%; padding:7px 0;}
   .l-controls .subtotal-tag{margin-top:0; font-size:11px;}
+  .l-controls .stock-badge{width:100%;}
   .l-remove{position:absolute; top:8px; right:8px; width:22px;height:22px; border-radius:50%; background:var(--off); border:none; color:var(--danger); font-size:12px; display:flex; align-items:center; justify-content:center; cursor:pointer;}
 
-  .cart-bar{
-    flex-shrink:0; margin:10px 16px calc(env(safe-area-inset-bottom, 0px) + 14px);
-    background:var(--green); border-radius:14px; padding:12px 16px; display:flex;
-    align-items:center; justify-content:space-between; box-shadow:0 10px 24px -6px rgba(14,107,58,.5); color:#fff; cursor:pointer;
-  }
+  .cart-bar{flex-shrink:0; margin:10px 16px calc(env(safe-area-inset-bottom,0px) + 14px); background:var(--green); border-radius:14px; padding:12px 16px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 10px 24px -6px rgba(14,107,58,.5); color:#fff; cursor:pointer;}
   .cart-bar .left{display:flex; align-items:center; gap:10px;}
   .cart-badge{background:#fff; color:var(--green); width:26px;height:26px; border-radius:50%; display:flex;align-items:center;justify-content:center; font-size:13px; font-weight:800;}
   .cart-bar .info{display:flex; flex-direction:column; line-height:1.2;}
@@ -136,12 +110,8 @@
   .bill-row.total{border-top:1px dashed var(--border); margin-top:4px; padding-top:10px; font-size:15.5px; font-weight:800;}
   .bill-row.total .amt{color:var(--green);}
 
-  .footer-cta{flex-shrink:0; padding:10px 16px calc(env(safe-area-inset-bottom, 0px) + 14px); background:var(--white); border-top:1px solid var(--border);}
-  .shopkeeper-btn{
-    width:100%; background:var(--green); color:#fff; border:none; border-radius:14px; padding:14px 0;
-    font-weight:800; font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
-    box-shadow:0 10px 24px -6px rgba(14,107,58,.5);
-  }
+  .footer-cta{flex-shrink:0; padding:10px 16px calc(env(safe-area-inset-bottom,0px) + 14px); background:var(--white); border-top:1px solid var(--border);}
+  .shopkeeper-btn{width:100%; background:var(--green); color:#fff; border:none; border-radius:7px; padding:14px 0; font-weight:800; font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 10px 24px -6px rgba(14,107,58,.5);}
   .footer-cta .mini-total{display:flex; justify-content:space-between; font-size:12.5px; color:var(--sub); margin-bottom:8px;}
   .footer-cta .mini-total b{color:var(--text); font-size:14px;}
 
@@ -150,14 +120,9 @@
   .modal-head{background:var(--green); padding:calc(env(safe-area-inset-top,0px) + 20px) 20px 18px; text-align:center; color:#fff; flex-shrink:0;}
   .modal-head .basket{font-size:32px; margin-bottom:2px;}
   .modal-head h2{font-size:17px; font-weight:800;}
-  .modal-head .store-id{display:inline-block; margin-top:6px; background:rgba(255,255,255,.18); padding:3px 10px; border-radius:20px; font-size:10.5px; font-weight:700; letter-spacing:.3px;}
+  .modal-head .store-id{display:inline-block; margin-top:6px; background:rgba(255,255,255,.18); padding:3px 10px; border-radius:20px; font-size:10.5px; font-weight:700;}
   .modal-head p{font-size:11px; opacity:.85; margin-top:6px;}
   .modal-items{flex:1; min-height:0; overflow-y:auto; padding:8px 20px;}
-  .modal-item{display:flex; justify-content:space-between; align-items:center; padding:10px 0; border-bottom:1px solid var(--border); font-size:13.5px;}
-  .modal-item:last-child{border-bottom:none;}
-  .modal-item .mi-name{font-weight:700;}
-  .modal-item .mi-qty{color:var(--sub); font-size:11.5px;}
-  .modal-item .mi-price{font-weight:700;}
   .modal-table{width:100%; border-collapse:collapse; font-size:12.5px;}
   .modal-table th{text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.4px; color:var(--sub); border-bottom:1px solid var(--border); padding:6px 4px;}
   .modal-table td{padding:9px 4px; border-bottom:1px solid var(--border);}
@@ -165,46 +130,45 @@
   .modal-total{flex-shrink:0; display:flex; justify-content:space-between; align-items:center; margin:0 20px; padding-top:12px; border-top:1px dashed var(--border); font-weight:800; font-size:16px;}
   .modal-total .amt{color:var(--green); font-size:20px;}
   .modal-thanks{flex-shrink:0; text-align:center; font-size:12.5px; color:var(--sub); padding:12px 20px 4px;}
-  .modal-actions{flex-shrink:0; display:flex; gap:10px; padding:14px 20px calc(env(safe-area-inset-bottom, 0px) + 16px);}
+  .modal-actions{flex-shrink:0; display:flex; gap:10px; padding:14px 20px calc(env(safe-area-inset-bottom,0px) + 16px);}
   .modal-actions button{flex:1; border-radius:12px; padding:13px 0; font-weight:700; font-size:14px; cursor:pointer; border:1px solid var(--border);}
   .modal-actions .close-btn{background:var(--off); color:var(--text);}
   .modal-actions .share-btn{background:var(--green); color:#fff; border-color:var(--green);}
 
-  .shop-hero{height:150px; flex-shrink:0; position:relative; background:linear-gradient(135deg,#2C8B57,#0E6B3A); display:flex; align-items:center; justify-content:center;}
-  .shop-hero .hero-emoji{font-size:56px;}
-  .hero-top-icons{position:absolute; top:calc(env(safe-area-inset-top,0px) + 12px); left:14px; right:14px; display:flex; justify-content:space-between;}
+  /* Shop landing */
+  .shop-hero{height:150px; flex-shrink:0; position:relative; background:linear-gradient(135deg,#2C8B57,#0E6B3A); display:flex; align-items:center; justify-content:center; overflow:hidden;}
+  .shop-hero img{width:100%; height:100%; object-fit:cover; position:absolute; inset:0;}
+  .shop-hero .hero-emoji{font-size:56px; position:relative; z-index:1;}
+  .hero-top-icons{position:absolute; top:calc(env(safe-area-inset-top,0px) + 12px); left:14px; right:14px; display:flex; justify-content:space-between; z-index:2;}
   .hero-icon-btn{width:34px;height:34px; border-radius:50%; background:rgba(255,255,255,.9); display:flex; align-items:center; justify-content:center; border:none; cursor:pointer;}
   .shop-card{background:var(--white); margin:-22px 14px 0; border-radius:16px; padding:14px; position:relative; box-shadow:0 10px 24px -12px rgba(0,0,0,.2); z-index:2;}
-  .shop-card .logo{position:absolute; top:-26px; left:14px; width:52px; height:52px; border-radius:14px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:26px; border:3px solid #fff;}
+  .shop-card .logo{position:absolute; top:-26px; left:14px; width:52px; height:52px; border-radius:14px; background:var(--green-light); display:flex; align-items:center; justify-content:center; font-size:26px; border:3px solid #fff; overflow:hidden;}
+  .shop-card .logo img{width:100%; height:100%; object-fit:cover;}
   .shop-card .top-row{display:flex; justify-content:space-between; align-items:flex-start; margin-left:60px;}
   .shop-card h2{font-size:16.5px; font-weight:800;}
   .verified-badge{display:inline-flex; align-items:center; gap:3px; font-size:10.5px; color:var(--green); font-weight:700; margin-top:2px;}
   .store-id-tag{font-size:10.5px; color:var(--sub); margin-top:2px;}
   .open-tag{background:var(--green-light); color:var(--green); font-size:10.5px; font-weight:700; padding:3px 8px; border-radius:8px; white-space:nowrap;}
+  .open-tag.closed{background:#FBE7E7; color:var(--danger);}
   .meta-row{display:flex; align-items:center; gap:6px; font-size:11.5px; color:var(--sub); margin-top:10px; flex-wrap:wrap;}
   .meta-row .rating{color:var(--gold); font-weight:700;}
   .meta-row .dot{width:3px;height:3px;border-radius:50%;background:var(--sub);}
-  .tag-row{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;}
-  .mini-tag{font-size:10px; font-weight:600; color:var(--text); background:var(--off); border:1px solid var(--border); padding:4px 8px; border-radius:8px;}
-  .offer-banner{margin:14px 16px 0; background:linear-gradient(90deg,#FFF3DD,#FFE9C2); border:1px solid #F3D9A0; border-radius:12px; padding:12px 14px; display:flex; align-items:center; justify-content:space-between;}
-  .offer-banner .otext{font-size:12.5px; font-weight:700; color:#7A5008;}
-  .offer-banner .osub{font-size:10.5px; color:#8A6420; margin-top:2px;}
-  .offer-banner .opct{font-size:20px;}
+  .meta-row .distance-chip{cursor:pointer; color:var(--green); font-weight:700;}
+  .contact-row{display:flex; gap:8px; margin-top:12px;}
+  .contact-row button{flex:1; border-radius:10px; padding:9px 0; font-size:11.5px; font-weight:700; border:1px solid var(--border); background:var(--off); color:var(--text); cursor:pointer;}
+  .info-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:14px 16px 0;}
+  .info-item{display:flex; justify-content:space-between; align-items:center; background:var(--white); border:1px solid var(--border); border-radius:10px; padding:9px 10px; font-size:11.5px; font-weight:600;}
+  .yn{display:inline-flex; align-items:center; gap:3px; font-size:10.5px; font-weight:700; padding:2px 7px; border-radius:20px;}
+  .yn.yes{color:var(--green); background:var(--green-light);}
+  .yn.no{color:var(--danger); background:#FBE7E7;}
   .search-bar{margin:14px 16px 0; background:var(--white); border:1px solid var(--border); border-radius:12px; padding:10px 12px; display:flex; align-items:center; gap:8px; font-size:12.5px; color:var(--sub);}
-  .cat-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:14px 16px 0;}
-  .cat-item{display:flex; flex-direction:column; align-items:center; gap:5px; font-size:10px; font-weight:600; color:var(--text);}
-  .cat-item .ci-circle{width:48px;height:48px; border-radius:50%; background:var(--off); border:1px solid var(--border); display:flex; align-items:center; justify-content:center; font-size:20px; cursor:pointer;}
   .section-head{display:flex; justify-content:space-between; align-items:center; margin:18px 16px 10px;}
   .section-head h3{font-size:13.5px; font-weight:800;}
-  .section-head span{font-size:11px; color:var(--green); font-weight:700;}
+  .section-head span{font-size:11px; color:var(--green); font-weight:700; cursor:pointer;}
   .about-box{margin:0 16px; background:var(--white); border:1px solid var(--border); border-radius:12px; padding:12px 14px;}
-  .about-box p{font-size:12px; color:var(--sub); line-height:1.5;}
-  .shop-footer{flex-shrink:0; padding:12px 16px calc(env(safe-area-inset-bottom, 0px) + 14px); background:var(--white); border-top:1px solid var(--border);}
-  .browse-btn{
-    width:100%; background:var(--green); color:#fff; border:none; border-radius:14px; padding:14px 0;
-    font-weight:800; font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px;
-    box-shadow:0 10px 24px -6px rgba(14,107,58,.5);
-  }
+  .about-box p{font-size:12px; color:var(--sub); line-height:1.6;}
+  .shop-footer{flex-shrink:0; padding:12px 16px calc(env(safe-area-inset-bottom,0px) + 14px); background:var(--white); border-top:1px solid var(--border);}
+  .browse-btn{width:100%; background:var(--green); color:#fff; border:none; border-radius:14px; padding:14px 0; font-weight:800; font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 10px 24px -6px rgba(14,107,58,.5);}
 </style>
 </head>
 <body>
@@ -214,52 +178,41 @@
   <!-- ================= SCREEN 0: SHOP LANDING PAGE ================= -->
   <div class="screen" id="screenShop">
     <div class="product-area" style="padding:0 0 14px;">
-      <div class="shop-hero">
+      <div class="shop-hero" id="shopHero">
         <div class="hero-top-icons">
           <button class="hero-icon-btn" aria-label="Back">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           <div style="display:flex; gap:8px;">
-            <button class="hero-icon-btn" aria-label="Share">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg>
-            </button>
-            <button class="hero-icon-btn" aria-label="Favorite">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D64545" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-            </button>
+            <button class="hero-icon-btn" aria-label="Share"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.6" y1="13.5" x2="15.4" y2="17.5"/><line x1="15.4" y1="6.5" x2="8.6" y2="10.5"/></svg></button>
+            <button class="hero-icon-btn" aria-label="Favorite"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#D64545" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></button>
           </div>
         </div>
-        <div class="hero-emoji">🥬🧺🍅</div>
+        <span class="hero-emoji" id="heroFallback">🥬🧺🍅</span>
       </div>
 
       <div class="shop-card">
-        <div class="logo">🏪</div>
+        <div class="logo" id="shopLogo">🏪</div>
         <div class="top-row">
           <div>
-            <h2>Sharma Vegetable Store</h2>
-            <div class="verified-badge">✅ Verified Shop</div>
-            <div class="store-id-tag">Store ID: PRY765498</div>
+            <h2 id="shopName">Loading…</h2>
+            <div class="verified-badge" id="shopVerifiedBadge"></div>
+            <div class="store-id-tag" id="shopIdTag"></div>
           </div>
-          <span class="open-tag">Open</span>
+          <span class="open-tag" id="shopOpenTag">…</span>
         </div>
         <div class="meta-row">
-          <span class="rating">★ 4.8</span><span>(230 ratings)</span>
-          <span class="dot"></span><span>2.3 km away</span>
-          <span class="dot"></span><span>8:00 AM – 9:00 PM</span>
+          <span class="rating" id="shopRating">★ --</span><span id="shopReviews"></span>
+          <span class="dot"></span><span class="distance-chip" id="distanceChip" onclick="checkDistance()">📍 Tap to check distance</span>
+          <span class="dot"></span><span id="shopTiming"></span>
         </div>
-        <div class="tag-row">
-          <span class="mini-tag">🌿 Fresh Produce</span>
-          <span class="mini-tag">💰 Best Prices</span>
-          <span class="mini-tag">🔥 Daily Offers</span>
+        <div class="contact-row">
+          <button onclick="callShop()">📞 Call Shop</button>
+          <button onclick="openDirections()">🧭 Directions</button>
         </div>
       </div>
 
-      <div class="offer-banner">
-        <div>
-          <div class="otext">Today's Special Offer</div>
-          <div class="osub">Get 10% OFF on Tomato (2kg or more)</div>
-        </div>
-        <div class="opct">🏷️</div>
-      </div>
+      <div class="info-grid" id="shopInfoGrid"></div>
 
       <div class="search-bar">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -267,21 +220,14 @@
       </div>
 
       <div class="section-head"><h3>Shop Categories</h3><span onclick="openProductsScreen()">View All &rsaquo;</span></div>
-      <div class="cat-grid">
-        <div class="cat-item" onclick="openProductsScreen()"><div class="ci-circle">🧺</div>All</div>
-        <div class="cat-item" onclick="openProductsScreen()"><div class="ci-circle">🍅</div>Veg.</div>
-        <div class="cat-item" onclick="openProductsScreen()"><div class="ci-circle">🍎</div>Fruits</div>
-        <div class="cat-item" onclick="openProductsScreen()"><div class="ci-circle">🥬</div>Leafy</div>
-        <div class="cat-item" onclick="openProductsScreen()"><div class="ci-circle">🧅</div>Others</div>
+      <div class="about-box" style="margin:0 16px;" onclick="openProductsScreen()">
+        <p><span id="shopOwnerLine"></span><br><span id="shopAddressLine"></span><br><span id="shopUpdatedLine" style="font-size:10.5px; opacity:.75;"></span></p>
       </div>
-
-      <div class="section-head"><h3>About Shop</h3></div>
-      <div class="about-box"><p>Fresh vegetables everyday. Best quality and fair price, sourced daily from local farms near Lucknow.</p></div>
     </div>
 
     <div class="shop-footer">
       <button class="browse-btn" onclick="openProductsScreen()">
-        🛍️ Browse Vegetables
+        🛍️ Sabjiya Dekhe
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
@@ -290,98 +236,22 @@
   <!-- ================= SCREEN 1: PRODUCT LIST ================= -->
   <div class="screen hidden" id="screenProducts">
     <div class="header">
-      <button class="back-btn" onclick="closeProductsScreen()" aria-label="Back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
+      <button class="back-btn" onclick="closeProductsScreen()" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
       <div class="header-title">
         <div class="step-tag"><span class="step-num">3</span><h1>Product List & Select Quantity</h1></div>
         <p>Add vegetables and set quantity</p>
       </div>
       <div class="view-toggle" role="group" aria-label="Change view">
-        <button id="gridBtn" class="active" onclick="setView('products','grid')" aria-label="Grid view">
-          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
-        </button>
-        <button id="listBtn" onclick="setView('products','list')" aria-label="List view">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-        </button>
+        <button id="gridBtn" class="active" onclick="setView('products','grid')" aria-label="Grid view"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></button>
+        <button id="listBtn" onclick="setView('products','list')" aria-label="List view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></button>
       </div>
     </div>
 
-    <div class="chips">
-      <div class="chip active">All</div>
-      <div class="chip">Vegetables</div>
-      <div class="chip">Leafy</div>
-      <div class="chip">Root</div>
-      <div class="chip">Fruits</div>
-      <div class="chip">Others</div>
-    </div>
+    <div class="chips" id="chipsRow"></div>
 
     <div class="product-area">
-      <div class="grid-view" id="gridView">
-        <div class="g-card" data-name="Tomato" data-price="25" data-unit="kg" data-qty="1500" data-suffix="/kg" data-mrp="30">
-          <div class="img-wrap"><span class="off-badge">17% OFF</span><div class="dummy-img" style="background:#FDEAEA">🍅</div></div>
-          <h3>Tomato</h3>
-          <div class="price-row"><span class="price"></span><span class="mrp"></span></div>
-        </div>
-        <div class="g-card" data-name="Potato" data-price="30" data-unit="kg" data-qty="2000" data-suffix="/kg" data-mrp="35">
-          <div class="img-wrap"><span class="off-badge">14% OFF</span><div class="dummy-img" style="background:#F5EDE0">🥔</div></div>
-          <h3>Potato</h3>
-          <div class="price-row"><span class="price"></span><span class="mrp"></span></div>
-        </div>
-        <div class="g-card" data-name="Onion" data-price="20" data-unit="kg" data-qty="500" data-suffix="/kg" data-mrp="25">
-          <div class="img-wrap"><span class="off-badge">20% OFF</span><div class="dummy-img" style="background:#F6E9F0">🧅</div></div>
-          <h3>Onion</h3>
-          <div class="price-row"><span class="price"></span><span class="mrp"></span></div>
-        </div>
-        <div class="g-card" data-name="Green Chilli" data-price="40" data-unit="100g" data-qty="100" data-suffix="/100g" data-mrp="50">
-          <div class="img-wrap"><span class="off-badge">20% OFF</span><div class="dummy-img" style="background:#E8F5EA">🌶️</div></div>
-          <h3>Green Chilli</h3>
-          <div class="price-row"><span class="price"></span><span class="mrp"></span></div>
-        </div>
-        <div class="g-card" data-name="Cucumber" data-price="18" data-unit="kg" data-qty="0" data-suffix="/kg">
-          <div class="img-wrap"><div class="dummy-img" style="background:#E9F6EC">🥒</div></div>
-          <h3>Cucumber</h3>
-          <div class="price-row"><span class="price"></span><span class="mrp"></span></div>
-        </div>
-        <div class="g-card" data-name="Carrot" data-price="30" data-unit="kg" data-qty="0" data-suffix="/kg">
-          <div class="img-wrap"><div class="dummy-img" style="background:#FDF0E2">🥕</div></div>
-          <h3>Carrot</h3>
-          <div class="price-row"><span class="price"></span><span class="mrp"></span></div>
-        </div>
-      </div>
-
-      <div class="list-view hidden" id="listView">
-        <div class="l-card" data-name="Tomato" data-price="25" data-unit="kg" data-qty="1500" data-suffix="/kg" data-mrp="30">
-          <div class="img-wrap"><div class="dummy-img" style="background:#FDEAEA">🍅</div></div>
-          <div class="l-info"><h3>Tomato</h3><div class="price-row"><span class="price"></span><span class="mrp"></span></div></div>
-          <div class="l-controls"></div>
-        </div>
-        <div class="l-card" data-name="Potato" data-price="30" data-unit="kg" data-qty="2000" data-suffix="/kg" data-mrp="35">
-          <div class="img-wrap"><div class="dummy-img" style="background:#F5EDE0">🥔</div></div>
-          <div class="l-info"><h3>Potato</h3><div class="price-row"><span class="price"></span><span class="mrp"></span></div></div>
-          <div class="l-controls"></div>
-        </div>
-        <div class="l-card" data-name="Onion" data-price="20" data-unit="kg" data-qty="500" data-suffix="/kg" data-mrp="25">
-          <div class="img-wrap"><div class="dummy-img" style="background:#F6E9F0">🧅</div></div>
-          <div class="l-info"><h3>Onion</h3><div class="price-row"><span class="price"></span><span class="mrp"></span></div></div>
-          <div class="l-controls"></div>
-        </div>
-        <div class="l-card" data-name="Green Chilli" data-price="40" data-unit="100g" data-qty="100" data-suffix="/100g" data-mrp="50">
-          <div class="img-wrap"><div class="dummy-img" style="background:#E8F5EA">🌶️</div></div>
-          <div class="l-info"><h3>Green Chilli</h3><div class="price-row"><span class="price"></span><span class="mrp"></span></div></div>
-          <div class="l-controls"></div>
-        </div>
-        <div class="l-card" data-name="Cucumber" data-price="18" data-unit="kg" data-qty="0" data-suffix="/kg">
-          <div class="img-wrap"><div class="dummy-img" style="background:#E9F6EC">🥒</div></div>
-          <div class="l-info"><h3>Cucumber</h3><div class="price-row"><span class="price"></span><span class="mrp"></span></div></div>
-          <div class="l-controls"></div>
-        </div>
-        <div class="l-card" data-name="Carrot" data-price="30" data-unit="kg" data-qty="0" data-suffix="/kg">
-          <div class="img-wrap"><div class="dummy-img" style="background:#FDF0E2">🥕</div></div>
-          <div class="l-info"><h3>Carrot</h3><div class="price-row"><span class="price"></span><span class="mrp"></span></div></div>
-          <div class="l-controls"></div>
-        </div>
-      </div>
+      <div class="grid-view" id="gridView"><div class="loading-msg">Loading products…</div></div>
+      <div class="list-view hidden" id="listView"></div>
     </div>
 
     <div class="cart-bar" onclick="openCartScreen()">
@@ -389,43 +259,29 @@
         <span class="cart-badge" id="cartCount">0</span>
         <div class="info"><span class="items">Items</span><span class="amt" id="cartTotal"></span></div>
       </div>
-      <div class="view-cart">View Cart
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </div>
+      <div class="view-cart">View Cart<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></div>
     </div>
   </div>
 
   <!-- ================= SCREEN 2: CART / BILL SUMMARY ================= -->
   <div class="screen hidden" id="screenCart">
     <div class="header">
-      <button class="back-btn" onclick="closeCartScreen()" aria-label="Back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <div class="header-title">
-        <div class="step-tag"><span class="step-num">4</span><h1>Cart / Bill Summary</h1></div>
-        <p>Review items and total</p>
-      </div>
+      <button class="back-btn" onclick="closeCartScreen()" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="#1B1F1D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="header-title"><div class="step-tag"><span class="step-num">4</span><h1>Cart / Bill Summary</h1></div><p>Review items and total</p></div>
       <div class="view-toggle" role="group" aria-label="Change view">
-        <button id="cartGridBtn" class="active" onclick="setView('cart','grid')" aria-label="Grid view">
-          <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
-        </button>
-        <button id="cartListBtn" onclick="setView('cart','list')" aria-label="List view">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg>
-        </button>
+        <button id="cartGridBtn" class="active" onclick="setView('cart','grid')" aria-label="Grid view"><svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg></button>
+        <button id="cartListBtn" onclick="setView('cart','list')" aria-label="List view"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></svg></button>
       </div>
     </div>
 
     <div class="product-area" id="cartArea">
       <div class="grid-view" id="cartGridView"></div>
       <div class="list-view hidden" id="cartListView"></div>
-
       <div id="emptyCartMsg" class="empty-cart hidden">
-        <div class="emoji">🛒</div>
-        <h3>Your cart is empty</h3>
+        <div class="emoji">🛒</div><h3>Your cart is empty</h3>
         <p>Add some vegetables from the list to see your bill here.</p>
         <button class="add-btn" onclick="closeCartScreen()">Browse Vegetables</button>
       </div>
-
       <div class="bill-card" id="billCard">
         <div class="bill-row"><span>Subtotal</span><span id="billSubtotal"></span></div>
         <div class="bill-row discount" id="billDiscountRow"><span>Discount (Special Offer)</span><span id="billDiscount"></span></div>
@@ -436,22 +292,19 @@
 
     <div class="footer-cta">
       <div class="mini-total"><span>Total Payable</span><b id="footerTotal"></b></div>
-      <button class="shopkeeper-btn" onclick="openShopkeeperModal()">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
-        Show to Shopkeeper
-      </button>
+      <button class="shopkeeper-btn" onclick="openShopkeeperModal()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Shopkeeper ko dikhaye </button>
     </div>
   </div>
 
 </div>
 
-<!-- ================= SHOW TO SHOPKEEPER POPUP (near full-screen, table layout) ================= -->
+<!-- ================= SHOW TO SHOPKEEPER POPUP ================= -->
 <div class="modal-overlay hidden" id="shopkeeperModal">
   <div class="modal-card">
     <div class="modal-head">
-      <div class="basket">🏪</div>
-      <h2>Sharma Vegetable Store</h2>
-      <div class="store-id">Store ID: PRY765498</div>
+      <div class="basket" id="modalLogo">🏪</div>
+      <h2 id="modalShopName">Shop</h2>
+      <div class="store-id" id="modalStoreId"></div>
       <p>Show this screen to the shopkeeper</p>
     </div>
     <div class="modal-items">
@@ -470,185 +323,252 @@
 </div>
 
 <script>
-/* Rupee symbol generated via code point — immune to any file/encoding issues */
-const RS = String.fromCharCode(8377); // ₹
+/* ============ Rupee symbol via code point — never breaks regardless of file encoding ============ */
+const RS = String.fromCharCode(8377);
+function money(n){ return RS + n.toFixed(2); }
 
+/* ============ Data URLs (fetched live over the network — NOT hardcoded) ============ */
+const SHOP_JSON_URL = 'https://shopdekho.github.io/localshop-platform/docs/shop.json';
+const MASTER_JSON_URL = 'https://shopdekho.github.io/localshop-platform/docs/products-master.json';
+const INVENTORY_JSON_URL = 'https://shopdekho.github.io/localshop-platform/docs/shop-inventory.json';
+
+let SHOP = null, MASTER_PRODUCTS = {}, MERGED_PRODUCTS = [];
+let QTY_STATE = {};          // productId -> quantity (grams for weight items, count for piece items)
+let CUSTOM_OPEN = new Set(); // productIds whose custom-quantity row is expanded
+let ACTIVE_CATEGORY = 'All';
+
+/* ============ Presets ============ */
 const MIN_CUSTOM_G = 10, MAX_G = 25000;
 const GRAM_PRESETS = [50,100,150,200,250,500,750];
 const KG_PRESETS_G = (()=>{ const a=[]; for(let t=10;t<=250;t+=5){ a.push(Math.round((t/10)*1000)); } return a; })();
-const PRESETS = GRAM_PRESETS.concat(KG_PRESETS_G);
-const SHOP_URL = 'https://qrprice.in/s/QP10001';
+const WEIGHT_PRESETS = GRAM_PRESETS.concat(KG_PRESETS_G);
+const PIECE_PRESETS = [1,2,3,4,5,6,7,8,9,10,12,15,20,25,30];
+const MAX_PIECES = 99;
 
-function money(n){ return RS + n.toFixed(2); }
+/* ============ Load JSON (fetch), with an embedded fallback copy for when this file
+   is opened directly (file://) and the browser blocks local fetch — same data either way ============ */
+async function loadAllData(){
+  try{
+    const [shopRes, masterRes, invRes] = await Promise.all([
+      fetch(SHOP_JSON_URL), fetch(MASTER_JSON_URL), fetch(INVENTORY_JSON_URL)
+    ]);
+    if(!shopRes.ok || !masterRes.ok || !invRes.ok) throw new Error('bad response');
+    SHOP = await shopRes.json();
+    const masterJson = await masterRes.json();
+    MASTER_PRODUCTS = masterJson.products;
+    const invJson = await invRes.json();
+    mergeProducts(invJson.products);
+  } catch(e){
+    console.warn('Could not fetch the live JSON URLs (no internet / CORS block) — using embedded fallback copy of the same data.', e);
+    SHOP = FALLBACK_SHOP;
+    MASTER_PRODUCTS = FALLBACK_MASTER.products;
+    mergeProducts(FALLBACK_INVENTORY.products);
+  }
+  renderShopPage();
+  renderCategoryChips();
+  renderProductScreen();
+  afterQtyChange();
+  checkDistance(); // best-effort auto attempt
+}
 
-function buildQtyOptionsHTML(selectedGrams, isCustom){
-  let html = '<option value="custom"'+(isCustom?' selected':'')+'>Custom Quantity</option>';
-  GRAM_PRESETS.forEach(g=>{
-    html += '<option value="'+g+'"'+(!isCustom && g===selectedGrams ? ' selected':'')+'>'+g+' g</option>';
+function mergeProducts(inventoryList){
+  MERGED_PRODUCTS = inventoryList.map(inv=>{
+    const m = MASTER_PRODUCTS[inv.id] || {};
+    return {
+      id: inv.id, name: m.name || inv.id, nameHi: m.nameHi || '', image: m.image || '',
+      unit: m.unit || 'kg', category: m.category || 'other',
+      price: inv.price, mrp: inv.mrp, stock: inv.stock !== false
+    };
   });
+}
+
+/* ============ Helpers ============ */
+function unitTypeOf(p){ return p.unit === 'piece' ? 'piece' : 'weight'; }
+function priceSuffix(p){ return p.unit === 'piece' ? '/piece' : '/kg'; }
+function categoryEmoji(cat){ return cat === 'vegetable' ? '🥬' : (cat === 'fruit' ? '🍎' : '🛒'); }
+function capitalize(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
+function isPresetValue(unitType, qty){ return unitType==='weight' ? WEIGHT_PRESETS.includes(qty) : PIECE_PRESETS.includes(qty); }
+function formatQty(qty, unitType){
+  if(unitType==='piece') return { value: qty, label: qty===1 ? 'pc' : 'pcs' };
+  if(qty >= 1000) return { value: Math.round((qty/1000)*100)/100, label:'kg' };
+  return { value: Math.round(qty), label:'g' };
+}
+function computeSubtotal(p, qty){ return p.unit==='piece' ? qty*p.price : (qty/1000)*p.price; }
+function getProduct(id){ return MERGED_PRODUCTS.find(p=>p.id===id); }
+function getQty(id){ return QTY_STATE[id] || 0; }
+function yesNo(bool){ return bool ? '<span class="yn yes">&#10004; Yes</span>' : '<span class="yn no">&#10005; No</span>'; }
+function formatTime12(t){
+  if(!t) return '';
+  const [h,m] = t.split(':').map(Number);
+  const period = h>=12 ? 'PM' : 'AM'; let hh = h%12; if(hh===0) hh=12;
+  return hh+':'+String(m).padStart(2,'0')+' '+period;
+}
+
+/* ============ Quantity option builders ============ */
+function buildWeightOptionsHTML(selectedGrams, isCustom){
+  let html = '<option value="custom"'+(isCustom?' selected':'')+'>Custom Quantity</option>';
+  GRAM_PRESETS.forEach(g=>{ html += '<option value="'+g+'"'+(!isCustom && g===selectedGrams?' selected':'')+'>'+g+' g</option>'; });
   KG_PRESETS_G.forEach(g=>{
-    const kg = g/1000;
-    const label = (kg % 1 === 0) ? kg+' kg' : kg.toFixed(1)+' kg';
-    html += '<option value="'+g+'"'+(!isCustom && g===selectedGrams ? ' selected':'')+'>'+label+'</option>';
+    const kg = g/1000; const label = (kg%1===0) ? kg+' kg' : kg.toFixed(1)+' kg';
+    html += '<option value="'+g+'"'+(!isCustom && g===selectedGrams?' selected':'')+'>'+label+'</option>';
   });
   return html;
 }
-
-/* Populate static price labels from data attributes, using the RS constant */
-function renderStaticPrices(){
-  document.querySelectorAll('[data-price]').forEach(card=>{
-    const priceEl = card.querySelector('.price');
-    const mrpEl = card.querySelector('.mrp');
-    if(priceEl) priceEl.textContent = RS + card.dataset.price + (card.dataset.suffix||'');
-    if(mrpEl){
-      if(card.dataset.mrp) mrpEl.textContent = RS + card.dataset.mrp;
-      else mrpEl.remove();
-    }
-  });
+function buildPieceOptionsHTML(selectedQty, isCustom){
+  let html = '<option value="custom"'+(isCustom?' selected':'')+'>Custom Quantity</option>';
+  PIECE_PRESETS.forEach(n=>{ html += '<option value="'+n+'"'+(!isCustom && n===selectedQty?' selected':'')+'>'+n+(n===1?' piece':' pieces')+'</option>'; });
+  return html;
+}
+function buildQtyOptionsHTML(unitType, selectedQty, isCustom){
+  return unitType==='weight' ? buildWeightOptionsHTML(selectedQty, isCustom) : buildPieceOptionsHTML(selectedQty, isCustom);
+}
+function buildCustomRowHTML(unitType, prefill){
+  if(unitType==='weight'){
+    const val = prefill ? prefill.value : ''; const unit = prefill ? prefill.label : 'g';
+    return '<input type="number" class="custom-qty-input" inputmode="decimal" placeholder="Qty" value="'+val+'" onchange="handleCustomCommit(this)" onkeydown="if(event.key===\'Enter\'){this.blur();}">'+
+      '<select class="custom-unit-select" onchange="handleCustomCommit(this)"><option value="g"'+(unit==='g'?' selected':'')+'>g</option><option value="kg"'+(unit==='kg'?' selected':'')+'>kg</option></select>';
+  }
+  const val = prefill ? prefill.value : '';
+  return '<input type="number" class="custom-qty-input" inputmode="numeric" placeholder="Qty (pcs)" value="'+val+'" style="flex:1;" onchange="handleCustomCommit(this)" onkeydown="if(event.key===\'Enter\'){this.blur();}">';
 }
 
-/* ---------- Screen navigation ---------- */
-function openProductsScreen(){
-  document.getElementById('screenShop').classList.add('hidden');
-  document.getElementById('screenProducts').classList.remove('hidden');
+/* ============ Card builders ============ */
+function buildImgWrapHTML(p, badgeHTML, removeHTML){
+  return '<div class="img-wrap">'+ badgeHTML + removeHTML +
+    '<img src="'+p.image+'" alt="'+p.name+'" loading="lazy" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'flex\';">'+
+    '<div class="dummy-img" style="display:none;">'+categoryEmoji(p.category)+'</div>'+
+  '</div>';
 }
-function closeProductsScreen(){
-  document.getElementById('screenProducts').classList.add('hidden');
-  document.getElementById('screenShop').classList.remove('hidden');
+function buildQtyControlsHTML(p, isList){
+  if(!p.stock) return '<div class="stock-badge">Out of Stock</div>';
+  const qty = getQty(p.id);
+  if(!qty || qty<=0) return '<button class="add-btn" onclick="handleAddClick(this)">+ Add</button>';
+  const unitType = unitTypeOf(p);
+  const isCustomValue = !isPresetValue(unitType, qty);
+  const showCustom = CUSTOM_OPEN.has(p.id) || isCustomValue;
+  const fmt = formatQty(qty, unitType);
+  const subVal = computeSubtotal(p, qty);
+  let html = '<div class="qty-select-wrap">'+
+      '<select class="qty-select" onchange="handleSelectChange(this)">'+buildQtyOptionsHTML(unitType, qty, showCustom)+'</select>'+
+      '<button type="button" class="mini-remove" onclick="handleRemoveClick(this)" title="Remove">&#10005;</button>'+
+    '</div>'+
+    '<div class="custom-qty-row'+(showCustom?'':' hidden')+'">'+buildCustomRowHTML(unitType, showCustom?fmt:null)+'</div>'+
+    '<div class="subtotal-tag">'+(isList?money(subVal):'Subtotal: <b>'+money(subVal)+'</b>')+'</div>';
+  return html;
+}
+function buildGridCardHTML(p, showRemove){
+  const badge = p.mrp ? '<span class="off-badge">'+Math.round((1-p.price/p.mrp)*100)+'% OFF</span>' : '';
+  const remove = showRemove ? '<button class="remove-x" onclick="handleRemoveClick(this)">&times;</button>' : '';
+  const nameHtml = p.name + (p.nameHi ? '<span class="name-hi">'+p.nameHi+'</span>' : '');
+  return '<div class="g-card" data-id="'+p.id+'">'+
+    buildImgWrapHTML(p, badge, remove)+
+    '<h3>'+nameHtml+'</h3>'+
+    '<div class="price-row"><span class="price">'+money(p.price)+priceSuffix(p)+'</span>'+(p.mrp?'<span class="mrp">'+money(p.mrp)+'</span>':'')+'</div>'+
+    buildQtyControlsHTML(p, false)+
+  '</div>';
+}
+function buildListCardHTML(p, showRemove){
+  const nameHtml = p.name + (p.nameHi ? ' <span class="name-hi">'+p.nameHi+'</span>' : '');
+  const remove = showRemove ? '<button class="l-remove" onclick="handleRemoveClick(this)">&times;</button>' : '';
+  return '<div class="l-card" data-id="'+p.id+'">'+
+    buildImgWrapHTML(p, '', '')+
+    '<div class="l-info"><h3>'+nameHtml+'</h3><div class="price-row"><span class="price">'+money(p.price)+priceSuffix(p)+'</span>'+(p.mrp?'<span class="mrp">'+money(p.mrp)+'</span>':'')+'</div></div>'+
+    '<div class="l-controls">'+buildQtyControlsHTML(p, true)+'</div>'+
+    remove+
+  '</div>';
 }
 
-/* ---------- View toggle ---------- */
+/* ============ Screen navigation ============ */
+function openProductsScreen(){ document.getElementById('screenShop').classList.add('hidden'); document.getElementById('screenProducts').classList.remove('hidden'); }
+function closeProductsScreen(){ document.getElementById('screenProducts').classList.add('hidden'); document.getElementById('screenShop').classList.remove('hidden'); }
+
+/* ============ View toggle ============ */
 function setView(scope, view){
   const gridId = scope==='products' ? 'gridView' : 'cartGridView';
   const listId = scope==='products' ? 'listView' : 'cartListView';
   const gridBtnId = scope==='products' ? 'gridBtn' : 'cartGridBtn';
   const listBtnId = scope==='products' ? 'listBtn' : 'cartListBtn';
-  const gridView = document.getElementById(gridId);
-  const listView = document.getElementById(listId);
-  const gridBtn = document.getElementById(gridBtnId);
-  const listBtn = document.getElementById(listBtnId);
-  if(view==='grid'){
-    gridView.classList.remove('hidden'); listView.classList.add('hidden');
-    gridBtn.classList.add('active'); listBtn.classList.remove('active');
-  } else {
-    listView.classList.remove('hidden'); gridView.classList.add('hidden');
-    listBtn.classList.add('active'); gridBtn.classList.remove('active');
-  }
+  const gridView = document.getElementById(gridId), listView = document.getElementById(listId);
+  const gridBtn = document.getElementById(gridBtnId), listBtn = document.getElementById(listBtnId);
+  if(view==='grid'){ gridView.classList.remove('hidden'); listView.classList.add('hidden'); gridBtn.classList.add('active'); listBtn.classList.remove('active'); }
+  else { listView.classList.remove('hidden'); gridView.classList.add('hidden'); listBtn.classList.add('active'); gridBtn.classList.remove('active'); }
 }
 
-function getTwinCards(name){ return document.querySelectorAll('[data-name="'+CSS.escape(name)+'"]'); }
-function pricePerGram(card){
-  const price = parseFloat(card.dataset.price);
-  return card.dataset.unit === 'kg' ? price/1000 : price/100;
-}
-function formatQty(grams){
-  if(grams >= 1000) return { value: Math.round((grams/1000)*100)/100, label:'kg' };
-  return { value: Math.round(grams), label:'g' };
-}
-
-/* ---------- Quantity controls ---------- */
-function addItem(btn){
-  const card = btn.closest('[data-price]');
-  applyQtyToTwins(card.dataset.name, GRAM_PRESETS[0]);
-  afterQtyChange();
-}
-function removeItem(el){
-  const card = el.closest('[data-price]');
-  applyQtyToTwins(card.dataset.name, 0);
-  afterQtyChange();
-}
-function onQtySelectChange(sel){
-  const card = sel.closest('[data-price]');
-  if(sel.value === 'custom'){
-    renderAddedState(card, true);
-    const row = card.querySelector('.custom-qty-row');
-    if(row) row.querySelector('.custom-qty-input').focus();
-    return;
-  }
-  applyQtyToTwins(card.dataset.name, parseInt(sel.value,10));
-  afterQtyChange();
-}
-function onCustomQtyCommit(triggerEl){
-  const row = triggerEl.closest('.custom-qty-row');
-  const card = row.closest('[data-price]');
-  const input = row.querySelector('.custom-qty-input');
-  const unitSel = row.querySelector('.custom-unit-select');
-  let val = parseFloat(input.value);
-  if(isNaN(val) || val <= 0) return;
-  let grams = unitSel.value === 'kg' ? val*1000 : val;
-  grams = Math.round(grams/10)*10;
-  grams = Math.min(MAX_G, Math.max(MIN_CUSTOM_G, grams));
-  applyQtyToTwins(card.dataset.name, grams);
-  afterQtyChange();
-}
-
-function applyQtyToTwins(name, grams){
-  getTwinCards(name).forEach(card=>{
-    card.dataset.qty = grams;
-    if(grams <= 0){ renderEmptyState(card); } else { renderAddedState(card); }
+/* ============ Category chips ============ */
+function renderCategoryChips(){
+  const cats = Array.from(new Set(MERGED_PRODUCTS.map(p=>p.category)));
+  const wrap = document.getElementById('chipsRow');
+  wrap.innerHTML = '';
+  const allChip = document.createElement('div');
+  allChip.className = 'chip'+(ACTIVE_CATEGORY==='All'?' active':'');
+  allChip.textContent = 'All';
+  allChip.onclick = ()=>{ ACTIVE_CATEGORY='All'; renderCategoryChips(); renderProductScreen(); };
+  wrap.appendChild(allChip);
+  cats.forEach(c=>{
+    const chip = document.createElement('div');
+    chip.className = 'chip'+(ACTIVE_CATEGORY===c?' active':'');
+    chip.textContent = capitalize(c);
+    chip.onclick = ()=>{ ACTIVE_CATEGORY=c; renderCategoryChips(); renderProductScreen(); };
+    wrap.appendChild(chip);
   });
 }
 
-function renderEmptyState(card){
-  const isList = card.classList.contains('l-card');
-  const controlsParent = isList ? card.querySelector('.l-controls') : card;
-  controlsParent.querySelectorAll('.qty-select-wrap,.custom-qty-row,.subtotal-tag').forEach(el=>el.remove());
-  if(!controlsParent.querySelector('.add-btn')){
-    const btn = document.createElement('button');
-    btn.className='add-btn'; btn.textContent='+ Add';
-    btn.onclick=function(){addItem(this);};
-    controlsParent.appendChild(btn);
+/* ============ Quantity interaction handlers ============ */
+function setQty(id, qty){
+  qty = Math.max(0, qty);
+  if(qty<=0){ delete QTY_STATE[id]; CUSTOM_OPEN.delete(id); } else { QTY_STATE[id]=qty; CUSTOM_OPEN.delete(id); }
+  renderProductScreen();
+  afterQtyChange();
+}
+function handleAddClick(btn){
+  const card = btn.closest('[data-id]'); const p = getProduct(card.dataset.id);
+  const unitType = unitTypeOf(p);
+  setQty(p.id, unitType==='piece' ? 1 : GRAM_PRESETS[0]);
+}
+function handleRemoveClick(btn){ const card = btn.closest('[data-id]'); setQty(card.dataset.id, 0); }
+function handleSelectChange(sel){
+  const card = sel.closest('[data-id]'); const id = card.dataset.id;
+  if(sel.value === 'custom'){
+    CUSTOM_OPEN.add(id);
+    renderProductScreen();
+    const newCard = document.querySelector('[data-id="'+CSS.escape(id)+'"] .custom-qty-input, .l-controls .custom-qty-input');
+    if(!document.getElementById('screenCart').classList.contains('hidden')) renderCartScreen();
+    return;
   }
+  CUSTOM_OPEN.delete(id);
+  setQty(id, parseFloat(sel.value));
+}
+function handleCustomCommit(el){
+  const row = el.closest('.custom-qty-row'); const card = row.closest('[data-id]');
+  const id = card.dataset.id; const p = getProduct(id); const unitType = unitTypeOf(p);
+  const input = row.querySelector('.custom-qty-input');
+  let val = parseFloat(input.value);
+  if(isNaN(val) || val<=0) return;
+  let qty;
+  if(unitType==='weight'){
+    const unitSel = row.querySelector('.custom-unit-select');
+    qty = unitSel.value==='kg' ? val*1000 : val;
+    qty = Math.round(qty/10)*10;
+    qty = Math.min(MAX_G, Math.max(MIN_CUSTOM_G, qty));
+  } else {
+    qty = Math.round(val);
+    qty = Math.min(MAX_PIECES, Math.max(1, qty));
+  }
+  setQty(id, qty);
 }
 
-function renderAddedState(card, forceCustomOpen){
-  const isList = card.classList.contains('l-card');
-  const controlsParent = isList ? card.querySelector('.l-controls') : card;
-  const addBtn = controlsParent.querySelector('.add-btn');
-  if(addBtn) addBtn.remove();
-
-  const grams = parseFloat(card.dataset.qty);
-  const isCustomValue = !PRESETS.includes(grams);
-  const showCustom = !!forceCustomOpen || isCustomValue;
-  const fmt = formatQty(grams);
-
-  let wrap = controlsParent.querySelector('.qty-select-wrap');
-  if(!wrap){ wrap = document.createElement('div'); wrap.className='qty-select-wrap'; controlsParent.appendChild(wrap); }
-  wrap.innerHTML =
-    '<select class="qty-select" onchange="onQtySelectChange(this)">'+buildQtyOptionsHTML(grams, showCustom)+'</select>'+
-    '<button type="button" class="mini-remove" onclick="removeItem(this)" title="Remove">&#10005;</button>';
-
-  let customRow = controlsParent.querySelector('.custom-qty-row');
-  if(!customRow){ customRow = document.createElement('div'); customRow.className='custom-qty-row'; controlsParent.appendChild(customRow); }
-  customRow.classList.toggle('hidden', !showCustom);
-  const prefillVal = showCustom ? fmt.value : '';
-  const prefillUnit = fmt.label;
-  customRow.innerHTML =
-    '<input type="number" class="custom-qty-input" inputmode="decimal" placeholder="Qty" value="'+prefillVal+'" '+
-      'onchange="onCustomQtyCommit(this)" onkeydown="if(event.key===\'Enter\'){this.blur();}">'+
-    '<select class="custom-unit-select" onchange="onCustomQtyCommit(this)">'+
-      '<option value="g"'+(prefillUnit==='g'?' selected':'')+'>g</option>'+
-      '<option value="kg"'+(prefillUnit==='kg'?' selected':'')+'>kg</option>'+
-    '</select>';
-
-  let sub = controlsParent.querySelector('.subtotal-tag');
-  if(!sub){ sub = document.createElement('div'); sub.className='subtotal-tag'; controlsParent.appendChild(sub); }
-  const subVal = grams * pricePerGram(card);
-  sub.innerHTML = isList ? money(subVal) : 'Subtotal: <b>'+money(subVal)+'</b>';
-  controlsParent.appendChild(sub);
+/* ============ Render product & cart screens ============ */
+function renderProductScreen(){
+  const products = ACTIVE_CATEGORY==='All' ? MERGED_PRODUCTS : MERGED_PRODUCTS.filter(p=>p.category===ACTIVE_CATEGORY);
+  document.getElementById('gridView').innerHTML = products.map(p=>buildGridCardHTML(p,false)).join('') || '<div class="loading-msg">No products in this category.</div>';
+  document.getElementById('listView').innerHTML = products.map(p=>buildListCardHTML(p,false)).join('');
 }
 
-/* ---------- Bill calculation ---------- */
 function calcBill(){
-  const items = [];
-  let subtotal = 0;
-  document.querySelectorAll('#gridView [data-price]').forEach(card=>{
-    const grams = parseFloat(card.dataset.qty);
-    if(grams > 0){
-      const price = grams * pricePerGram(card);
-      subtotal += price;
-      items.push({ name: card.dataset.name, grams, price });
-    }
+  const items = []; let subtotal = 0;
+  MERGED_PRODUCTS.forEach(p=>{
+    const qty = getQty(p.id);
+    if(qty>0){ const price = computeSubtotal(p, qty); subtotal += price; items.push({ p, qty, price }); }
   });
   const discount = subtotal >= 100 ? 10 : 0;
   const delivery = 0;
@@ -660,123 +580,170 @@ function afterQtyChange(){
   const bill = calcBill();
   document.getElementById('cartCount').textContent = bill.count;
   document.getElementById('cartTotal').textContent = money(bill.total);
-  if(!document.getElementById('screenCart').classList.contains('hidden')){
-    renderCartScreen();
-  }
+  if(!document.getElementById('screenCart').classList.contains('hidden')) renderCartScreen();
 }
 
-/* ---------- Cart / Bill Summary screen ---------- */
-function openCartScreen(){
-  renderCartScreen();
-  document.getElementById('screenProducts').classList.add('hidden');
-  document.getElementById('screenCart').classList.remove('hidden');
-}
-function closeCartScreen(){
-  document.getElementById('screenCart').classList.add('hidden');
-  document.getElementById('screenProducts').classList.remove('hidden');
-}
+function openCartScreen(){ renderCartScreen(); document.getElementById('screenProducts').classList.add('hidden'); document.getElementById('screenCart').classList.remove('hidden'); }
+function closeCartScreen(){ document.getElementById('screenCart').classList.add('hidden'); document.getElementById('screenProducts').classList.remove('hidden'); }
 
 function renderCartScreen(){
   const bill = calcBill();
-  const cartGrid = document.getElementById('cartGridView');
-  const cartList = document.getElementById('cartListView');
-  const emptyMsg = document.getElementById('emptyCartMsg');
-  const billCard = document.getElementById('billCard');
-  cartGrid.innerHTML = ''; cartList.innerHTML = '';
-
+  const cartGrid = document.getElementById('cartGridView'), cartList = document.getElementById('cartListView');
+  const emptyMsg = document.getElementById('emptyCartMsg'), billCard = document.getElementById('billCard');
   document.getElementById('billDelivery').textContent = money(0);
 
   if(bill.count === 0){
-    emptyMsg.classList.remove('hidden');
-    billCard.classList.add('hidden');
+    cartGrid.innerHTML=''; cartList.innerHTML='';
+    emptyMsg.classList.remove('hidden'); billCard.classList.add('hidden');
     document.getElementById('footerTotal').textContent = money(0);
     return;
   }
-  emptyMsg.classList.add('hidden');
-  billCard.classList.remove('hidden');
-
-  document.querySelectorAll('#gridView [data-price]').forEach(card=>{
-    const grams = parseFloat(card.dataset.qty);
-    if(grams <= 0) return;
-    const gClone = card.cloneNode(true);
-    const removeBtn = document.createElement('button');
-    removeBtn.className='remove-x'; removeBtn.innerHTML='&times;';
-    removeBtn.onclick=function(){ removeItem(this); };
-    gClone.querySelector('.img-wrap').appendChild(removeBtn);
-    cartGrid.appendChild(gClone);
-
-    const listSource = document.querySelector('#listView [data-name="'+CSS.escape(card.dataset.name)+'"]');
-    if(listSource){
-      const lClone = listSource.cloneNode(true);
-      const lRemove = document.createElement('button');
-      lRemove.className='l-remove'; lRemove.innerHTML='&times;';
-      lRemove.onclick=function(){ removeItem(this); };
-      lClone.appendChild(lRemove);
-      cartList.appendChild(lClone);
-    }
-  });
+  emptyMsg.classList.add('hidden'); billCard.classList.remove('hidden');
+  cartGrid.innerHTML = bill.items.map(it=>buildGridCardHTML(it.p,true)).join('');
+  cartList.innerHTML = bill.items.map(it=>buildListCardHTML(it.p,true)).join('');
 
   document.getElementById('billSubtotal').textContent = money(bill.subtotal);
   const discountRow = document.getElementById('billDiscountRow');
-  if(bill.discount > 0){
-    discountRow.classList.remove('hidden');
-    document.getElementById('billDiscount').textContent = '\u2212 ' + money(bill.discount);
-  } else {
-    discountRow.classList.add('hidden');
-  }
+  if(bill.discount>0){ discountRow.classList.remove('hidden'); document.getElementById('billDiscount').textContent = '\u2212 '+money(bill.discount); }
+  else discountRow.classList.add('hidden');
   document.getElementById('billTotal').textContent = money(bill.total);
   document.getElementById('footerTotal').textContent = money(bill.total);
 
-  if(document.getElementById('cartListBtn').classList.contains('active')){
-    cartList.classList.remove('hidden'); cartGrid.classList.add('hidden');
-  } else {
-    cartGrid.classList.remove('hidden'); cartList.classList.add('hidden');
-  }
+  if(document.getElementById('cartListBtn').classList.contains('active')){ cartList.classList.remove('hidden'); cartGrid.classList.add('hidden'); }
+  else { cartGrid.classList.remove('hidden'); cartList.classList.add('hidden'); }
 }
 
-/* ---------- Show to Shopkeeper popup (table layout) ---------- */
+/* ============ Show to Shopkeeper popup ============ */
 function openShopkeeperModal(){
   const bill = calcBill();
+  document.getElementById('modalShopName').textContent = SHOP ? SHOP.name : 'Shop';
+  document.getElementById('modalStoreId').textContent = 'Store ID: ' + (SHOP ? SHOP.shopId : '');
   const modalItems = document.getElementById('modalItems');
-  modalItems.innerHTML = '';
-  bill.items.forEach(it=>{
-    const fmt = formatQty(it.grams);
-    const row = document.createElement('tr');
-    row.innerHTML = '<td>'+it.name+'</td><td>'+fmt.value+' '+fmt.label+'</td><td class="num">'+money(it.price)+'</td>';
-    modalItems.appendChild(row);
-  });
+  modalItems.innerHTML = bill.items.map(it=>{
+    const fmt = formatQty(it.qty, unitTypeOf(it.p));
+    const nm = it.p.name + (it.p.nameHi ? ' / '+it.p.nameHi : '');
+    return '<tr><td>'+nm+'</td><td>'+fmt.value+' '+fmt.label+'</td><td class="num">'+money(it.price)+'</td></tr>';
+  }).join('');
   document.getElementById('modalTotal').textContent = money(bill.total);
   document.getElementById('shopkeeperModal').classList.remove('hidden');
 }
 function closeShopkeeperModal(){ document.getElementById('shopkeeperModal').classList.add('hidden'); }
 
-/* Share — link included only ONCE (native share puts it in the url field, fallback puts it in the text) */
+function shopUrl(){ return SHOP ? ('https://qrprice.in/s/'+SHOP.shopId) : 'https://qrprice.in'; }
 function shareBill(){
   const bill = calcBill();
   const lines = bill.items.map(it=>{
-    const fmt = formatQty(it.grams);
-    return it.name+' - '+fmt.value+fmt.label+' - '+money(it.price);
+    const fmt = formatQty(it.qty, unitTypeOf(it.p));
+    return it.p.name+' - '+fmt.value+fmt.label+' - '+money(it.price);
   });
-  const bodyText = 'Sharma Vegetable Store (Store ID: PRY765498)\n'+lines.join('\n')+'\nTotal: '+money(bill.total);
-
+  const shopName = SHOP ? SHOP.name : 'Vegetable Shop';
+  const shopId = SHOP ? SHOP.shopId : '';
+  const bodyText = shopName+' (Store ID: '+shopId+')\n'+lines.join('\n')+'\nTotal: '+money(bill.total);
+  const url = shopUrl();
   if(navigator.share){
-    navigator.share({ title:'Vegetable Bill - Sharma Vegetable Store', text: bodyText, url: SHOP_URL }).catch(()=>{});
+    navigator.share({ title:'Vegetable Bill - '+shopName, text: bodyText, url: url }).catch(()=>{});
   } else {
-    const fullText = bodyText + '\n\nView & Pay: ' + SHOP_URL;
-    if(navigator.clipboard){
-      navigator.clipboard.writeText(fullText).then(()=>alert('Bill copied! You can paste and share it now.')).catch(()=>alert(fullText));
-    } else {
-      alert(fullText);
-    }
+    const fullText = bodyText + '\n\nView & Pay: ' + url;
+    if(navigator.clipboard){ navigator.clipboard.writeText(fullText).then(()=>alert('Bill copied! You can paste and share it now.')).catch(()=>alert(fullText)); }
+    else alert(fullText);
   }
 }
 
-/* ---------- Initial render ---------- */
-renderStaticPrices();
-document.querySelectorAll('#gridView [data-price]').forEach(card=>{
-  applyQtyToTwins(card.dataset.name, parseFloat(card.dataset.qty));
-});
-afterQtyChange();
+/* ============ Shop landing page render ============ */
+function renderShopPage(){
+  if(!SHOP) return;
+  document.getElementById('shopName').textContent = SHOP.name;
+  document.getElementById('shopIdTag').textContent = 'Store ID: ' + SHOP.shopId;
+  document.getElementById('shopVerifiedBadge').innerHTML = SHOP.verified ? '&#9989; Verified Shop' : '';
+  const openTag = document.getElementById('shopOpenTag');
+  openTag.textContent = SHOP.open ? 'Open' : 'Closed';
+  openTag.classList.toggle('closed', !SHOP.open);
+  document.getElementById('shopRating').innerHTML = '&#9733; ' + SHOP.rating;
+  document.getElementById('shopReviews').textContent = '(' + SHOP.totalReview + ' ratings)';
+  document.getElementById('shopTiming').textContent = formatTime12(SHOP.openTime) + ' \u2013 ' + formatTime12(SHOP.closeTime);
+  document.getElementById('shopOwnerLine').textContent = 'Owner: ' + SHOP.owner;
+  document.getElementById('shopAddressLine').textContent = 'Address: ' + SHOP.address;
+  try{
+    const d = new Date(SHOP.lastUpdated);
+    document.getElementById('shopUpdatedLine').textContent = 'Prices last updated: ' + d.toLocaleString('en-IN', {day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit'});
+  }catch(e){}
+
+  const logoEl = document.getElementById('shopLogo');
+  if(SHOP.logo){ logoEl.innerHTML = '<img src="'+SHOP.logo+'" alt="logo" onerror="this.parentElement.innerHTML=\'&#127978;\'">'; }
+  const hero = document.getElementById('shopHero');
+  if(SHOP.banner){
+    const img = document.createElement('img');
+    img.src = SHOP.banner; img.alt = 'banner';
+    img.onerror = function(){ img.remove(); };
+    hero.insertBefore(img, hero.firstChild);
+  }
+
+  document.getElementById('modalLogo').textContent = '\ud83c\udfea';
+
+  const infoItems = [
+    { label:'Verified Shop', val: SHOP.verified },
+    { label:'Home Delivery', val: SHOP.homeDelivery },
+    { label:'Delivery', val: SHOP.delivery },
+    { label:'UPI Payment', val: SHOP.upi },
+    { label:'Parking', val: SHOP.parking }
+  ];
+  document.getElementById('shopInfoGrid').innerHTML = infoItems.map(it=>'<div class="info-item"><span>'+it.label+'</span>'+yesNo(it.val)+'</div>').join('');
+}
+
+function callShop(){ if(SHOP && SHOP.mobile) window.location.href = 'tel:'+SHOP.mobile; }
+function openDirections(){ if(!SHOP) return; window.open('https://www.google.com/maps/search/?api=1&query='+SHOP.latitude+','+SHOP.longitude, '_blank'); }
+
+/* ============ GPS distance (Haversine) ============ */
+function haversineKm(lat1, lon1, lat2, lon2){
+  const R = 6371;
+  const dLat = (lat2-lat1)*Math.PI/180, dLon = (lon2-lon1)*Math.PI/180;
+  const a = Math.sin(dLat/2)**2 + Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLon/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+function checkDistance(){
+  const el = document.getElementById('distanceChip');
+  if(!SHOP) return;
+  if(!navigator.geolocation){ el.textContent = 'Location not supported'; return; }
+  el.textContent = '\ud83d\udccd Locating…';
+  navigator.geolocation.getCurrentPosition(
+    function(pos){
+      const d = haversineKm(pos.coords.latitude, pos.coords.longitude, SHOP.latitude, SHOP.longitude);
+      el.textContent = '\ud83d\udccd ' + (d < 1 ? Math.round(d*1000)+' m away' : d.toFixed(1)+' km away');
+    },
+    function(){ el.textContent = '\ud83d\udccd Tap to check distance'; },
+    { timeout: 8000 }
+  );
+}
+
+/* ============ Embedded fallback copy (used only if fetch of data/*.json fails,
+   e.g. file opened directly via file:// without a local server) ============ */
+const FALLBACK_SHOP = {
+  "shopId":"PRY3GF765","city":"PRY","name":"Green Fresh","owner":"Rahul Kumar","mobile":"9876543210",
+  "banner":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEBYEZ2WSKwrNoJWk4sJmZxerL4zedtah15Dyy_pBwbk6E8zVk_UnLhuF7&s=10",
+  "logo":"https://img.magnific.com/free-vector/shop-with-sign-open-design_23-2148544029.jpg",
+  "address":"Civil Lines, Prayagraj","latitude":25.435801,"longitude":81.846311,
+  "rating":4.8,"totalReview":356,"verified":true,"open":true,"openTime":"07:00","closeTime":"21:00",
+  "delivery":true,"upi":true,"parking":false,"homeDelivery":true,"lastUpdated":"2026-08-07T10:15:00+05:30"
+};
+const FALLBACK_MASTER = { "version":1, "products": {
+  "tomato":{"name":"Tomato","nameHi":"\u091f\u092e\u093e\u091f\u0930","image":"https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg","unit":"kg","category":"vegetable"},
+  "potato":{"name":"Potato","nameHi":"\u0906\u0932\u0942","image":"https://5.imimg.com/data5/SELLER/Default/2021/9/YP/XC/AS/22640664/potato-aalu-500x500.jpg","unit":"kg","category":"vegetable"},
+  "onion":{"name":"Onion","nameHi":"\u092a\u094d\u092f\u093e\u091c","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8gUPxNg-EGRa0KYU_tX1rRYYzPZxM-OElnTiXqXIYdxx9Wwzbk-3-n8&s=10","unit":"kg","category":"vegetable"},
+  "green_chilli":{"name":"Green Chilli","nameHi":"\u0939\u0930\u0940 \u092e\u093f\u0930\u094d\u091a","image":"https://t4.ftcdn.net/jpg/00/55/53/45/360_F_55534593_bcuiI7vujoIEoYf7jlaIU1in32WlCvld.jpg","unit":"kg","category":"vegetable"},
+  "cauliflower":{"name":"Cauliflower","nameHi":"\u092b\u0942\u0932\u0917\u094b\u092d\u0940","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRulkXv3RhNWgqOIH-JWS--W6hl72EBMsxqkzAQDcXVSOyMuMtDuaclpys&s=10","unit":"piece","category":"vegetable"},
+  "cabbage":{"name":"Cabbage","nameHi":"\u092a\u0924\u094d\u0924\u093e\u0917\u094b\u092d\u0940","image":"https://media.istockphoto.com/id/673162168/photo/green-cabbage-isolated-on-white.jpg?s=612x612&w=0&k=20&c=mCc4mXATvCcfp2E9taRJBp-QPYQ_LCj6nE1D7geaqVk=","unit":"piece","category":"vegetable"}
+}};
+const FALLBACK_INVENTORY = { "shopId":"PRY3GF765","updatedAt":"2026-08-07T10:15:00+05:30","products":[
+  {"id":"tomato","price":42,"mrp":48,"stock":true},
+  {"id":"potato","price":28,"mrp":32,"stock":true},
+  {"id":"onion","price":31,"mrp":35,"stock":true},
+  {"id":"green_chilli","price":60,"mrp":70,"stock":true},
+  {"id":"cauliflower","price":38,"mrp":45,"stock":true},
+  {"id":"cabbage","price":26,"mrp":30,"stock":false}
+]};
+
+/* ============ Init ============ */
+loadAllData();
 </script>
 
 </body>

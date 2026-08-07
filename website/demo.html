@@ -47,7 +47,7 @@
   .grid-view{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:7px;}
   .g-card{background:var(--white); border-radius:11px; border:1px solid var(--border); padding:6px; display:flex; flex-direction:column; position:relative; min-width:0; overflow:hidden;}
   .g-card .img-wrap{position:relative; border-radius:9px; overflow:hidden; aspect-ratio:1/1; background:#f2f2f2; margin-bottom:6px;}
-  .g-card .img-wrap img{width:100%; height:72%; object-fit:cover; display:block;}
+  .g-card .img-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
   .dummy-img{width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:30px;}
   .off-badge{position:absolute; top:3px; left:3px; background:var(--green); color:#fff; font-size:7.5px; font-weight:700; padding:2px 4px; border-radius:5px; z-index:2;}
   .remove-x{position:absolute; top:3px; right:3px; width:17px; height:17px; border-radius:50%; background:rgba(0,0,0,.45); color:#fff; border:none; font-size:10px; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:2;}
@@ -74,7 +74,7 @@
   .list-view{display:flex; flex-direction:column; gap:10px;}
   .l-card{background:var(--white); border-radius:14px; border:1px solid var(--border); padding:12px; display:flex; gap:12px; align-items:center; position:relative;}
   .l-card .img-wrap{width:64px;height:64px; border-radius:10px; overflow:hidden; flex-shrink:0; background:#f2f2f2; position:relative;}
-  .l-card .img-wrap img{width:100%; height:72%; object-fit:cover;}
+  .l-card .img-wrap img{width:100%; height:100%; object-fit:cover;}
   .l-info{flex:1; min-width:0;}
   .l-info h3{font-size:14px; font-weight:700; margin-bottom:2px;}
   .l-info h3 .name-hi{color:var(--sub); font-weight:600; font-size:12px;}
@@ -111,7 +111,7 @@
   .bill-row.total .amt{color:var(--green);}
 
   .footer-cta{flex-shrink:0; padding:10px 16px calc(env(safe-area-inset-bottom,0px) + 14px); background:var(--white); border-top:1px solid var(--border);}
-  .shopkeeper-btn{width:100%; background:var(--green); color:#fff; border:none; border-radius:7px; padding:14px 0; font-weight:800; font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 10px 24px -6px rgba(14,107,58,.5);}
+  .shopkeeper-btn{width:100%; background:var(--green); color:#fff; border:none; border-radius:14px; padding:14px 0; font-weight:800; font-size:14.5px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; box-shadow:0 10px 24px -6px rgba(14,107,58,.5);}
   .footer-cta .mini-total{display:flex; justify-content:space-between; font-size:12.5px; color:var(--sub); margin-bottom:8px;}
   .footer-cta .mini-total b{color:var(--text); font-size:14px;}
 
@@ -227,7 +227,7 @@
 
     <div class="shop-footer">
       <button class="browse-btn" onclick="openProductsScreen()">
-        🛍️ Sabjiya Dekhe
+        🛍️ Browse Vegetables
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
       </button>
     </div>
@@ -292,7 +292,7 @@
 
     <div class="footer-cta">
       <div class="mini-total"><span>Total Payable</span><b id="footerTotal"></b></div>
-      <button class="shopkeeper-btn" onclick="openShopkeeperModal()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Shopkeeper ko dikhaye </button>
+      <button class="shopkeeper-btn" onclick="openShopkeeperModal()"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Show to Shopkeeper</button>
     </div>
   </div>
 
@@ -327,10 +327,28 @@
 const RS = String.fromCharCode(8377);
 function money(n){ return RS + n.toFixed(2); }
 
-/* ============ Data URLs (fetched live over the network — NOT hardcoded) ============ */
-const SHOP_JSON_URL = 'https://shopdekho.github.io/localshop-platform/docs/shop.json';
-const MASTER_JSON_URL = 'https://shopdekho.github.io/localshop-platform/docs/products-master.json';
-const INVENTORY_JSON_URL = 'https://shopdekho.github.io/localshop-platform/docs/shop-inventory.json';
+/* ============ Fully dynamic data layer ============ */
+/* Reads the Shop ID straight from the URL (path /s/SHOPID, ?shopId=SHOPID, or #/s/SHOPID),
+   derives the city prefix from it (first 3 letters), and builds all three JSON URLs from
+   that — nothing is hardcoded. Change the URL / Shop ID and the same code loads a
+   completely different shop with zero code edits. */
+function getShopIdFromUrl(){
+  const path = window.location.pathname + window.location.hash;
+  const match = path.match(/\/s\/([A-Za-z0-9]+)/i);
+  if(match && match[1]) return match[1];
+  const qsShopId = new URLSearchParams(window.location.search).get('shopId');
+  if(qsShopId) return qsShopId;
+  return 'PRY3GF765'; // demo fallback when this page isn't served under a /s/<ShopID> route
+}
+function getCityFromShopId(shopId){ return shopId.substring(0,3).toUpperCase(); }
+
+const BASE_URL = 'https://shopdekho.github.io/localshop-platform/docs';
+const SHOP_ID = getShopIdFromUrl();
+const CITY = getCityFromShopId(SHOP_ID);
+
+const MASTER_JSON_URL = `${BASE_URL}/data/master/products.json`;
+const SHOP_JSON_URL = `${BASE_URL}/data/shops/${CITY}/${SHOP_ID}.json`;
+const INVENTORY_JSON_URL = `${BASE_URL}/data/products/${CITY}/${SHOP_ID}.json`;
 
 let SHOP = null, MASTER_PRODUCTS = {}, MERGED_PRODUCTS = [];
 let QTY_STATE = {};          // productId -> quantity (grams for weight items, count for piece items)
@@ -359,7 +377,7 @@ async function loadAllData(){
     const invJson = await invRes.json();
     mergeProducts(invJson.products);
   } catch(e){
-    console.warn('Could not fetch the live JSON URLs (no internet / CORS block) — using embedded fallback copy of the same data.', e);
+    console.warn('Could not fetch live data for Shop ID "'+SHOP_ID+'" (city "'+CITY+'") — using embedded fallback copy.', e);
     SHOP = FALLBACK_SHOP;
     MASTER_PRODUCTS = FALLBACK_MASTER.products;
     mergeProducts(FALLBACK_INVENTORY.products);
@@ -726,7 +744,7 @@ const FALLBACK_SHOP = {
   "delivery":true,"upi":true,"parking":false,"homeDelivery":true,"lastUpdated":"2026-08-07T10:15:00+05:30"
 };
 const FALLBACK_MASTER = { "version":1, "products": {
-  "tomato":{"name":"Tomato","nameHi":"\u091f\u092e\u093e\u091f\u0930","image":"https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg","unit":"kg","category":"vegetable"},
+  "tomato":{"name":"Tomatop","nameHi":"\u091f\u092e\u093e\u091f\u0930","image":"https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg","unit":"kg","category":"vegetable"},
   "potato":{"name":"Potato","nameHi":"\u0906\u0932\u0942","image":"https://5.imimg.com/data5/SELLER/Default/2021/9/YP/XC/AS/22640664/potato-aalu-500x500.jpg","unit":"kg","category":"vegetable"},
   "onion":{"name":"Onion","nameHi":"\u092a\u094d\u092f\u093e\u091c","image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc8gUPxNg-EGRa0KYU_tX1rRYYzPZxM-OElnTiXqXIYdxx9Wwzbk-3-n8&s=10","unit":"kg","category":"vegetable"},
   "green_chilli":{"name":"Green Chilli","nameHi":"\u0939\u0930\u0940 \u092e\u093f\u0930\u094d\u091a","image":"https://t4.ftcdn.net/jpg/00/55/53/45/360_F_55534593_bcuiI7vujoIEoYf7jlaIU1in32WlCvld.jpg","unit":"kg","category":"vegetable"},

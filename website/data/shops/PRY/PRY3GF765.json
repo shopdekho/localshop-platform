@@ -1,0 +1,41 @@
+{
+  "shopId": "PRY3GF765",
+
+  "city": "PRY",
+
+  "shopName": "Green Fresh",
+
+  "ownerName": "Rahul Kumar",
+
+  "mobile": "9876543210",
+
+  "address": "Civil Lines, Prayagraj",
+
+  "latitude": 25.435801,
+
+  "longitude": 81.846311,
+
+  "logo": "/assets/images/logo/shop-logo.webp",
+
+  "banner": "/assets/images/banner/shop-banner.webp",
+
+  "rating": 4.8,
+
+  "reviewCount": 356,
+
+  "verified": true,
+
+  "isOpen": true,
+
+  "openTime": "07:00",
+
+  "closeTime": "21:00",
+
+  "homeDelivery": true,
+
+  "upi": true,
+
+  "parking": true,
+
+  "lastUpdated": "2026-08-08T10:30:00+05:30"
+}

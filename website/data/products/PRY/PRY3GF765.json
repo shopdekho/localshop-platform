@@ -1,0 +1,51 @@
+{
+  "shopId": "PRY3GF765",
+
+  "updatedAt": "2026-08-08T10:30:00+05:30",
+
+  "products": [
+
+    {
+      "id": "tomato",
+      "price": 42,
+      "mrp": 48,
+      "stock": true
+    },
+
+    {
+      "id": "potato",
+      "price": 28,
+      "mrp": 32,
+      "stock": true
+    },
+
+    {
+      "id": "onion",
+      "price": 31,
+      "mrp": 36,
+      "stock": true
+    },
+
+    {
+      "id": "green_chilli",
+      "price": 60,
+      "mrp": 70,
+      "stock": true
+    },
+
+    {
+      "id": "cauliflower",
+      "price": 38,
+      "mrp": 45,
+      "stock": true
+    },
+
+    {
+      "id": "cabbage",
+      "price": 26,
+      "mrp": 30,
+      "stock": false
+    }
+
+  ]
+}

@@ -8,6 +8,13 @@
       "unit": "kg",
       "category": "vegetable"
     },
+    "tomato": {
+      "name": "Tomato",
+      "nameHi": "टमाटर",
+      "image": "https://t4.ftcdn.net/jpg/05/72/95/29/360_F_572952963_YNVwHoPX0FWaENu6jShGiYpIICS3W1cc.jpg",
+      "unit": "kg",
+      "category": "vegetable"
+    },
     "potato": {
       "name": "Potato",
       "nameHi": "आलू",

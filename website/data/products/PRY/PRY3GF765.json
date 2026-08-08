@@ -11,6 +11,12 @@
       "mrp": 48,
       "stock": true
     },
+    {
+  "id": "Beet Roo",
+  "price": 65,
+  "mrp": 70,
+  "stock": true
+}
 
     {
       "id": "potato",
